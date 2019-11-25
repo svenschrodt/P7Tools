@@ -66,7 +66,7 @@ class NetString
         $encString = $this->stringToHex($string);
         $this->length = strlen($string);
         $encLength = $this->stringToHex((string) $this->length);        
-        $this->encoded .= $encLength . ' ' . dechex(ord(':')) . ' ' . $encString . ' ' . dechex(ord(',')) . self::NETSTRING_END;
+       return  $this->encoded .= $encLength . ' ' . dechex(ord(':')) . ' ' . $encString . ' ' . dechex(ord(',')) . self::NETSTRING_END;
     }
 
     /**

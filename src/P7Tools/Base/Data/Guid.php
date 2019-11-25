@@ -1,10 +1,17 @@
 <?php declare(strict_types=1);
 /**
+ * P7Tools\Base\Data\Guid
  *
+ * Generic class to create and handle globally unique identifiers
  *
- * @since 12.08.2016
- * @author   Sven Schrodt
- * @version 0.0.24
+ * !Do not use in production until it is stable!
+ *
+ * @link https://github.com/svenschrodt/P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @package P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
  */
 namespace P7Tools\Base\Data;
 
@@ -12,11 +19,11 @@ class Guid
 {
 
     /**
-     * creates a 32 byte hexadecimal global unique ID
+     * Creates a 32 byte hexadecimal global unique ID
      *
      * @return string the unique ID
      */
-    public static function getRandomGUID($strSecret = null)
+    public static function getRandomGUID(string $strSecret = null) : string
     {
         $strSalt = self::getSalt();
 
@@ -28,16 +35,16 @@ class Guid
     }
 
     /**
-     * returns the random bits for generating the Global unique id
+     * Returning random bits for generating the Global unique id
      *
      * @return string the salt
      */
-    private static function getSalt()
+    private static function getSalt() : string
     {
         $strTime = microtime();
         $strRandom = rand(0, 32768);
-        // same in MySql SELECT MD5(MD5(CONCAT(UNIX_TIMESTAMP(), '#',(FLOOR(0 +
-        // RAND() * 32768)))))
+        // same in MySql:
+        //      SELECT MD5(MD5(CONCAT(UNIX_TIMESTAMP(), '#',(FLOOR(0 + RAND() * 32768)))))
         return md5($strTime . '#' . $strRandom);
     }
 
@@ -50,8 +57,11 @@ class Guid
      *            the payload to be hashed
      * @param $strSecret string
      *            optional salt
+     *            
+     * @return string 
+     *            hashed string
      */
-    public static function getHash($strValue, $strSecret = null)
+    public static function getHash(string $strValue, string $strSecret = null) : string
     {
         $strSalt = '';
         if($strSecret != null) {

@@ -1,24 +1,52 @@
-<?php declare(strict_types=1);
-
+<?php
+declare(strict_types = 1);
 /**
- * Static methods helping with arrays
+ * P7Tools\Base\Data\Container
  *
- * @author Sven Schrodt
- * @since 2012-03-13
+ * Generic class helping to work with arrays:
+ * -
+ * !Do not use in production until it is stable!
+ *
+ * @link https://github.com/svenschrodt/P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @package P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.0.24
  */
 namespace P7Tools\Base\Data;
 
 class ArrayHelper
 {
 
+    /**
+     *
+     * @var string
+     */
     public static $elementSeparator = '|';
 
+    /**
+     *
+     * @var string
+     */
     public static $keyLimitBegin = '[';
 
+    /**
+     *
+     * @var string
+     */
     public static $keyLimitEnd = ']';
 
+    /**
+     * 
+     * @var string
+     */
     public static $assignmentSign = '=>';
 
+    /**
+     * OS dependant end of line (LF, CRLF, LFCR)
+     * @var string
+     */
     public static $lineSeparator = PHP_EOL;
 
     /**
@@ -42,7 +70,7 @@ class ArrayHelper
      * @param string $propertyName
      * @return array
      */
-    public static function getPropertyListFromCollection(array $data, $propertyName)
+    public static function getPropertyListFromCollection(array $data, string $propertyName) : array
     {
         $propertyList = array();
         foreach ($data as $item) {
@@ -60,7 +88,7 @@ class ArrayHelper
      * @param string $withKeys
      * @return string
      */
-    public static function getArrayAsString(array $data, $withKeys = false)
+    public static function getArrayAsString(array $data, bool $withKeys = false) : string
     {
         if (count($data) == 0) {
             return '';
@@ -73,11 +101,11 @@ class ArrayHelper
             }
 
             if (is_object($value) && ! method_exists($value, '__toString')) {
-                $value = $tmp .'[OBJECT: ' . get_class($value) . ']';
+                $value = $tmp . '[OBJECT: ' . get_class($value) . ']';
             } elseif (is_array($value)) {
-                $value = $tmp.'[ARRAY]';
+                $value = $tmp . '[ARRAY]';
             } else {
-                $value = $tmp.$value;
+                $value = $tmp . $value;
             }
         }
 
@@ -91,7 +119,7 @@ class ArrayHelper
      * @param string $withKeys
      * @return string
      */
-    public static function getMultiArrayAsString(array $data, $withKeys = false)
+    public static function getMultiArrayAsString(array $data, bool $withKeys = false) : string
     {
         foreach ($data as $item) {
 
@@ -108,9 +136,10 @@ class ArrayHelper
      * @param bool $titleFirstLine
      * @return array
      */
-    public static function getArrayFromCsv($fileName, $titleFirstLine = true)
+    public static function getArrayFromCsv(string $fileName, bool $titleFirstLine = true) : array
     {
         $data = array();
+        //@FIXME - validating file resource
         $fh = fopen($fileName, 'r');
         if ($titleFirstLine) {
             $head = fgets($fh);

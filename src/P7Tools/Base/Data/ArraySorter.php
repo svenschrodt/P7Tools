@@ -1,15 +1,20 @@
-<?php
-
-declare(strict_types = 1);
-
+<?php declare(strict_types = 1);
 /**
+ * P7Tools\Base\Data\ArraySorter
+ * 
  * Static methods for sorting arrays of arrays - useful for pure data without
  * data base context
- *
- * @author Sven Schrodt
- * @since 2018-03-13
+ * 
+ * @since 2018-12-19
+ * @link https://github.com/svenschrodt/P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @package P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.0.24
  */
-namespace P7Tools\Base\Data;
+
+ amespace P7Tools\Base\Data;
 
 class ArraySorter
 {
@@ -66,7 +71,7 @@ class ArraySorter
      * @param array $array
      * @param String $sortKey
      */
-    public static function sortByKeyNumeric(array &$array, $sortKey, $sortOrder = false)
+    public static function sortByKeyNumeric(array &$array, string $sortKey, $sortOrder = false)
     {
         self::$sortKey = $sortKey;
         if ($sortOrder) {
@@ -102,7 +107,7 @@ class ArraySorter
      * @param array $array
      * @param String $sortKey
      */
-    public static function sortByKeyAlpha(array &$array, $sortKey, $sortOrder = false)
+    public static function sortByKeyAlpha(array &$array, string $sortKey, $sortOrder = false)
     {
         self::$sortKey = $sortKey;
         if ($sortOrder) {
@@ -126,7 +131,7 @@ class ArraySorter
      * @param string $sortOrder
      * @throws \InvalidArgumentException
      */
-    public static function sortByKeyPartOfValue(array &$array, $sortKey, $sortOrder = false)
+    public static function sortByKeyPartOfValue(array &$array, string $sortKey, $sortOrder = false)
     {
         self::$sortKey = $sortKey;
         if ($sortOrder) {
@@ -170,6 +175,7 @@ class ArraySorter
             if ($a[self::$sortKey] == $b[self::$sortKey]) {
                 return 0;
                 // -1 if less, or 1 if greater
+                // @TODO : using Php 7+'s new operators ??
             } else {
                 return ((float) $b[self::$sortKey]) < ((float) $a[self::$sortKey]) ? 1 : - 1;
             }

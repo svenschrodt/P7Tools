@@ -1,12 +1,20 @@
 <?php declare(strict_types=1);
 /**
+ * P7Tools\Base\Data\MultiArrayObject
+ *
  * Abstract class for array like behaviour on objects, making them
- * - iteratable, countable,
+ * - iteratable, 
+ * - countable,
+
+ * !Do not use in production until it is stable!
  *
- * @TODO (un) serialize
- *
- * @author Sven Schrodt
- * @since 2015-10-04
+ * @link https://github.com/svenschrodt/P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @package P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.0.24
+ */
  */
 namespace P7Tools\Base\Data;
 
@@ -34,7 +42,7 @@ abstract class MultiArrayObject implements \Iterator, \Countable
     /**
      * Getting key of current element
      *
-     * @return mixed
+     * @return string 
      */
     public function key()
     {
@@ -55,7 +63,7 @@ abstract class MultiArrayObject implements \Iterator, \Countable
      *
      * @return bool
      */
-    public function valid()
+    public function valid() : bool
     {
         return ($this->current() !== false);
     }
@@ -65,9 +73,9 @@ abstract class MultiArrayObject implements \Iterator, \Countable
     /**
      * Counting elements of current array
      *
-     * @return number
+     * @return int
      */
-    public function count()
+    public function count() :int
     {
         return count($this->_data[$this->_current]);
     }
