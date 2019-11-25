@@ -33,7 +33,7 @@ class Validator
      * @param $content
      * @return bool
      */
-    public static function isValidElement($content)
+    public static function NOisValidElement($content)
     {
         //TODO also allowing instances of \SimpleXMLElement, \DOMElement etc.
         return $content instanceof \P7Tools\Xml\Element;

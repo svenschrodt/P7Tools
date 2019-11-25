@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types = 1);
 /**
  * P7Tools\CliHelper
  *
@@ -16,5 +18,80 @@ namespace P7Tools\Cli;
 class Helper
 {
 
+    /**
+     * Returning (debugging) information about given object
+     *
+     * @param
+     *            $object
+     * @param bool $trace
+     * @param bool $html
+     * @return mixed
+     */
+    public static function getInfo($object, $trace = false, $inHtml = false)
+    {
+        // TODO -> check if executed in web context or via CLI
+        $info = '';
+        if ($inHtml) {
+            $info .= "<pre>\n";
+        }
+        $info .= var_export($object, 1);
+        if ($inHtml) {
+            $info .= "</pre>\n";
+        }
+        if ($trace) {
+            if ($inHtml) {
+                $info .= '<pre>';
+            }
+            print_r(debug_backtrace(1));
+            if ($inHtml) {
+                $info .= '</pre>';
+            }
+        }
+        return $info;
+    }
 
+    /**
+     * Printing (debugging) information to STDOUT
+     *
+     * @param
+     *            $object
+     * @param bool $stop
+     */
+    public static function printInfo($object, $stop = false, $inHtml = false)
+    {
+        print self::getInfo($object, false, $inHtml);
+        if ($stop) {
+            $traceInfo = debug_backtrace(1);
+            // var_dump($traceInfo);
+            die('Stopped in ' . $traceInfo[0]['file'] . ' line ' . $traceInfo[0]['line']);
+        }
+    }
+
+    /**
+     * Stopping current script's execution and optional output of backtrace
+     * debugging information
+     *
+     * @param bool $trace
+     */
+    public static function stop($trace = false)
+    {
+        if ($trace) {
+            $traceInfo = debug_backtrace(1);
+            // echo '<pre>';
+            // print_r($traceInfo);
+            // echo '</pre>';
+        }
+        // return $info;
+        die('Stopped in ' . $traceInfo[0]['file'] . ' line ' . $traceInfo[0]['line']);
+    }
+
+    public static function startMeasure()
+    {
+        return microtime(true);
+    }
+
+    public static function stopMeasure($startTime)
+    {
+        return (microtime(true) - $startTime);
+    }
 } 

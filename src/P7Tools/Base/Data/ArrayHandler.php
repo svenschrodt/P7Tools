@@ -18,7 +18,7 @@
  * @author Sven Schrodt
  * @since 2015-10-02
  */
-namespace STools\Base\Data;
+namespace P7Tools\Base\Data;
 
 class ArrayHandler extends MultiArrayObject
 {
@@ -48,7 +48,7 @@ class ArrayHandler extends MultiArrayObject
      * Setting options
      *
      * @param array $options
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function setOptions(array $options)
     {
@@ -62,7 +62,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $direction
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function sort($key, $direction = 'asc', $type = 'numeric')
     {
@@ -85,7 +85,7 @@ class ArrayHandler extends MultiArrayObject
      * @param string $key
      * @param number $part
      * @param string $direction
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function sortNamePart($key, $part = 1, $direction = 'asc')
     {
@@ -119,7 +119,7 @@ class ArrayHandler extends MultiArrayObject
     /**
      * Un doing last operation on array
      *
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function rollBack()
     {
@@ -138,7 +138,7 @@ class ArrayHandler extends MultiArrayObject
      * representated by number $keep
      *
      * @param number $keep
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     protected function clearBut($keep = 0)
     {
@@ -156,7 +156,7 @@ class ArrayHandler extends MultiArrayObject
     /**
      * Deleting historical arrays, only keeping current
      *
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function clearHistory()
     {
@@ -166,7 +166,7 @@ class ArrayHandler extends MultiArrayObject
     /**
      * Deleting all operations, keeping original data
      *
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function clearOperations()
     {
@@ -179,7 +179,7 @@ class ArrayHandler extends MultiArrayObject
      * @param string $key
      * @param mixed $value
      * @param string $mode
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     protected function applyFilter($key, $value, $mode)
     {
@@ -194,7 +194,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function contains($key, $value)
     {
@@ -206,7 +206,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function notContains($key, $value)
     {
@@ -218,7 +218,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function begins($key, $value)
     {
@@ -230,7 +230,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function notBegins($key, $value)
     {
@@ -242,7 +242,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function ends($key, $value)
     {
@@ -254,7 +254,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function notEnds($key, $value)
     {
@@ -266,7 +266,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function equals($key, $value)
     {
@@ -278,7 +278,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function NotEquals($key, $value)
     {
@@ -291,7 +291,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function greater($key, $value)
     {
@@ -303,7 +303,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function notGreater($key, $value)
     {
@@ -315,7 +315,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function less($key, $value)
     {
@@ -327,7 +327,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function notLess($key, $value)
     {
@@ -339,7 +339,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function greaterEquals($key, $value)
     {
@@ -351,7 +351,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function notgreaterEquals($key, $value)
     {
@@ -363,7 +363,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function lessEquals($key, $value)
     {
@@ -375,7 +375,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function notLessEquals($key, $value)
     {
@@ -387,7 +387,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function between($key, $from, $to)
     {
@@ -402,7 +402,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function notBetween($key, $from, $to)
     {
@@ -419,7 +419,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function max($key)
     {
@@ -431,7 +431,7 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $value
-     * @return \STools\Base\Data\ArrayHandler
+     * @return \P7Tools\Base\Data\ArrayHandler
      */
     public function min($key)
     {

@@ -8,7 +8,7 @@
  * @author Sven Schrodt
  * @since 2015-10-04
  */
-namespace STools\Base\Data;
+namespace P7Tools\Base\Data;
 
 
 

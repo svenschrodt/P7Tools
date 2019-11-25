@@ -1,12 +1,19 @@
-#exclude IDE etc.specific 
+# P7Tools .gitignore
+#
+# exclude IDE etc.specific 
 .settings
 .project
 .buildpath
 
-#exclude 3rd party stuff
-/vendor
+# exclude project specific temp. deprecated resources
+*..depr
 
-# exclude
-#/.local.conf 
+# exclude 3rd party stuff
+/vendor
+composer.json
+composer.lock
+
+# exclude local configuration
+#/.local.conf.php 
 
 

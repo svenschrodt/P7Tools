@@ -33,7 +33,7 @@ class Helper
         if ($inHtml) {
             $info .= "<pre>\n";
         }
-        $info .= var_export($object, 1);
+        $info .= var_export($object, true);
         if ($inHtml) {
             $info .= "</pre>\n";
         }

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * Stools\Base\File\Exception
+ * P7Tools\Base\File\Exception
  *
  *
  * !Do not use in production until it is stable!

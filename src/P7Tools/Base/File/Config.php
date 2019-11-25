@@ -32,7 +32,8 @@ class Config
 
     protected static function readConfigFile()
     {
-        self::$_config = parse_ini_file(APP_ROOT . '/config/main.cfg', 1);
+        
+        self::$_config = parse_ini_file('.local.conf.php',true);
     }
 
 }

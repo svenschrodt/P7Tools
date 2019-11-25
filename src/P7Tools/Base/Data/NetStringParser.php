@@ -6,7 +6,7 @@
  * @author P290691 Sven Schrodt<Sven.Schrodt@mode-it-systems.de>
  * @version 0.0.24
  */
-namespace STools\Base\Data;
+namespace P7Tools\Base\Data;
 class NetStringParser
 {
     protected $string ='<31 32 3a 68 65 6c 6c 6f 20 77 6f 72 6c 64 21 2c 31 32 3a 68 65 6c 6c 6f 20 77 6f 72 6c 64 21 2c>';

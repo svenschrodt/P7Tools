@@ -1,12 +1,12 @@
 <?php
 /**
- * STools\Base\Data\ContainerTest
+ * P7Tools\Base\Data\ContainerTest
  *
  *
- * @link https://github.com/svenschrodt/STools
+ * @link https://github.com/svenschrodt/P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
- * @package STools
- * @license https://github.com/svenschrodt/STools/blob/master/LICENSE.md
+ * @package P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  * @version 0.0.23
  */

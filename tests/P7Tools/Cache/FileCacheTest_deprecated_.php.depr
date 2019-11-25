@@ -1,0 +1,41 @@
+<?php
+/**
+ * P7Tools\Http\CooperationTest
+ *
+ * Testing co operating of HTTP components
+ *
+ * @link https://github.com/svenschrodt/P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @package P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.0.23
+ */
+namespace P7Tools\Cache;
+
+use P7Tools\Cache\Filecache;
+
+class FileCacheTest_deprecated_ extends \PHPUnit\Framework\TestCase
+{
+
+    protected $_cache;
+
+    public function setUp()
+    {}
+
+    public function testIfCanCache()
+    {
+        $data = \P7Tools\Dev\Mock::getGeneratedData();
+        $this->_cache->set('FooBar', $data);
+        $this->_cache->set('Bar', 'BAR');
+       // $this->_cache->delete('FooBar');
+//         var_dump($this->_cache->get('FooBar'));
+    }
+
+    public function __construct()
+    {
+        $this->_cache = Filecache::getInstance();
+    }
+}
+
+

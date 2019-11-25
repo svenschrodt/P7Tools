@@ -16,7 +16,7 @@
 namespace P7Tools\Net;
 
 
-use Stools\Base\File\Exception;
+use P7Tools\Base\File\Exception;
 
 class Client
 {
