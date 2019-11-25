@@ -13,6 +13,10 @@
 composer.json
 composer.lock
 
+# exclude local functional testing resources
+index.php
+.htaccess
+
 # exclude local configuration
 #/.local.conf.php 
 
