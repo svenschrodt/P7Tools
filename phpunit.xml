@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--**
+ * STools
+ *
+ * PHPUnit configuration file
+ *
+ * @link https://github.com/svenschrodt/STools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @package STools
+ * @license https://github.com/svenschrodt/STools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.0.23
+ */-->
+
+
+<phpunit bootstrap="Bootstrap.php" colors="true" verbose="true" debug="true">
+    <php>
+        <var name="db_dsn" value="mysql:dbname=none_defined_yet;host=gwen.stacy.example.org"/>
+        <var name="db_username" value="rotcelloC"/>
+        <var name="db_password" value="1an3l33r_1ivan"/>
+        <env name="PROJECT_ENVIRONMENT" value="Develop"/>
+        <env name="PROJECT_NAME" value="P7Tools"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Testing STools">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+  <!--  Rules for code coverage -->
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./tests</directory>
+                <directory>./src/public</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+        <!-- log type="coverage-html" target="../coverage_reports/STools" lowUpperBound="35" highLowerBound="70"/ -->
+    </logging>
+</phpunit>

@@ -1,3 +1,12 @@
-#IDE etc. 
+#exclude IDE etc.specific 
 .settings
 .project
+.buildpath
+
+#exclude 3rd party stuff
+/vendor
+
+# exclude
+#/.local.conf 
+
+
