@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * \Base\File\Exception
+ * Simplified basic usage of memcache daemon
  *
  *
  * !Do not use in production until it is stable!

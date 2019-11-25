@@ -1,6 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 /**
- * P7Tools\Base\Data\String
+ * P7Tools\Dev\CodeCreator
+ *
+ * Class to generate (formatted) source code from different data structures and
+ * resources
  *
  * !Do not use in production until it is stable!
  *
@@ -13,21 +16,31 @@
  */
 namespace P7Tools\Dev;
 use P7Tools\Base\Data\Symbol;
+
 class CodeCreator
 {
 
     /**
      * Returning quoted value
-     *
-     * @param array $data
-     * @return string
+     * 
+     * @param string $value - string to be quoted
+     * @param string $qs - sign used for quoting 
+     * @return string - result: quoted string
      */
-    public static function quote($value, $qs = Symbol::SINGLE_QUOTE)
+   public static function quote(string $value, string $qs = Symbol::SINGLE_QUOTE) : string 
     {
         return sprintf("$qs%s$qs", $value);
     }
 
-    public static function getEnumeration(array $data, $quote = Symbol::SINGLE_QUOTE, $separator=', ')
+    /**
+     * Generate enumeration list from values in $data
+     * 
+     * @param array $data
+     * @param string $quote
+     * @param string $separator
+     * @return string
+     */
+    public static function getEnumeration(array $data, string $quote = Symbol::SINGLE_QUOTE, string $separator=', ') : string
     {
 
         foreach ($data as &$value) {
@@ -38,7 +51,17 @@ class CodeCreator
     }
 
 
-    public static function getAssignment($key, $value, $quote = Symbol::SINGLE_QUOTE, $eol='', $assignId=Symbol::DEFAULT_ASSIGNMENT_IDENTIFIER)
+    /**
+     * Generate assignment statement 
+     * 
+     * @param string $key
+     * @param string $value
+     * @param string $quote
+     * @param string $eol
+     * @param string $assignId
+     * @return string
+     */
+    public static function getAssignment(string $key, string $value, string $quote = Symbol::SINGLE_QUOTE,string  $eol='', string $assignId=Symbol::DEFAULT_ASSIGNMENT_IDENTIFIER) : string
     {
         return implode(' ', array(
             $key,
@@ -47,7 +70,18 @@ class CodeCreator
         )) .$eol;
     }
 
-    public static function getAssignmentList(array $data, $quote = Symbol::SINGLE_QUOTE, $asString = true, $separator = PHP_EOL, $eol='', $assignId=Symbol::DEFAULT_ASSIGNMENT_IDENTIFIER)
+    /**
+     * Generate assignment statements from array $data
+     *  
+     * @param array $data
+     * @param string $quote
+     * @param bool $asString
+     * @param string $separator
+     * @param string $eol
+     * @param string $assignId
+     * @return string|string[]
+     */
+    public static function getAssignmentList(array $data, string $quote = Symbol::SINGLE_QUOTE, bool $asString = true, string $separator = PHP_EOL, $eol='', string $assignId=Symbol::DEFAULT_ASSIGNMENT_IDENTIFIER)
     {
         $tmp = array();
         foreach ($data as $key => $value) {
@@ -56,7 +90,15 @@ class CodeCreator
         return ($asString) ? implode($separator, $tmp) : $tmp;
     }
 
-    public static function parenthesiseExpression($expression, $start=Symbol::OPEN_PARENTHESIS, $end=Symbol::CLOSE_PARENTHESIS)
+    /**
+     * Generate given expression in parenthesis
+     * 
+     * @param string $expression
+     * @param string $start
+     * @param string $end
+     * @return string
+     */
+    public static function parenthesiseExpression(string $expression, string $start=Symbol::OPEN_PARENTHESIS, string $end=Symbol::CLOSE_PARENTHESIS) : string
     {
         return "{$start}{$expression}{$end}";
     }
