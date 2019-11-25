@@ -105,4 +105,10 @@ class Helper
     {
         return (microtime(true) - $startTime);
     }
+    
+    public static function dumpCode($code)
+    {
+        
+    }
+    
 } 
