@@ -1,10 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types = 1);
 
 /**
- * Static methods for sorting arrays of arrays
+ * Static methods for sorting arrays of arrays - useful for pure data without
+ * data base context
  *
  * @author Sven Schrodt
- * @since 2012-03-13
+ * @since 2018-03-13
  */
 namespace P7Tools\Base\Data;
 
@@ -38,7 +41,7 @@ class ArraySorter
     /**
      * Default value for part
      * [0] ^ [1]
-     *     |_____________Separator
+     * |_____________Separator
      *
      * @var int
      */
@@ -110,9 +113,9 @@ class ArraySorter
         }
         // using usort with callback function
         usort($array, array(
-        __CLASS__,
-        'sortByKeyAlphaCallback'
-            ));
+            __CLASS__,
+            'sortByKeyAlphaCallback'
+        ));
     }
 
     /**
@@ -125,7 +128,6 @@ class ArraySorter
      */
     public static function sortByKeyPartOfValue(array &$array, $sortKey, $sortOrder = false)
     {
-
         self::$sortKey = $sortKey;
         if ($sortOrder) {
             if (! self::isValidSortOrder($sortOrder)) {
@@ -135,15 +137,15 @@ class ArraySorter
         }
         // using usort with callback function
         usort($array, array(
-        __CLASS__,
-        'sortByKeyPartOfValueCallback'
-            ));
+            __CLASS__,
+            'sortByKeyPartOfValueCallback'
+        ));
     }
 
     /**
      * Callback function for self::sortByKeyNumieric()
      *
-     * Returning  int value -1, 0, or 1
+     * Returning int value -1, 0, or 1
      * on (lt,eq, or gt) or vice versa
      * depending on sort order
      *
@@ -154,7 +156,7 @@ class ArraySorter
      */
     protected static function sortByKeyNumericCallback($a, $b)
     {
-        //temp. setting elements with key and zero values, if missing in child array
+        // temp. setting elements with key and zero values, if missing in child array
         if (! array_key_exists(self::$sortKey, $a) || is_null($a[self::$sortKey])) {
             $a[self::$sortKey] = 0;
         }
@@ -169,21 +171,19 @@ class ArraySorter
                 return 0;
                 // -1 if less, or 1 if greater
             } else {
-                return ((float) $b[self::$sortKey]) <
-                ((float) $a[self::$sortKey]) ? 1 : - 1;
+                return ((float) $b[self::$sortKey]) < ((float) $a[self::$sortKey]) ? 1 : - 1;
             }
-
         } elseif (self::$sortOrder == 'desc') { // or sort order descending
-            // return 0 if equals
+                                                // return 0 if equals
             if ($a[self::$sortKey] == $b[self::$sortKey]) {
                 return 0;
                 // 1 if less, or -1 if greater
             } else {
-                return ((float) $b[self::$sortKey]) >
-                ((float) $a[self::$sortKey]) ? 1 : - 1;
+                return ((float) $b[self::$sortKey]) > ((float) $a[self::$sortKey]) ? 1 : - 1;
             }
         }
     }
+
     /**
      * Sorting by key with part of values
      *
@@ -206,6 +206,7 @@ class ArraySorter
             return strcmp($b[self::$sortKey], $a[self::$sortKey]);
         }
     }
+
     /**
      * Sorting by key with part of values
      *
@@ -233,20 +234,21 @@ class ArraySorter
         // ascending
         if (self::$sortOrder == 'asc') {
             return strcmp($partA, $partB);
-        } elseif (self::$sortOrder == 'desc') {  // descending
+        } elseif (self::$sortOrder == 'desc') { // descending
             return strcmp($partB, $partA);
         }
     }
 
     /**
-     * Setting parameters for sorting  parts
+     * Setting parameters for sorting parts
      *
      * @param string $separator
      * @param int $part
      */
-    public static function setParamPartSort($separator, $part)
+    public static function setParamPartSort(string $separator, int $part)
     {
         // TODO Validation
+        // FIXME -> separate Exception message from this class!
         if (! is_numeric($part)) {
             throw new \InvalidArgumentException('$part MUST be a number');
         }
@@ -257,14 +259,13 @@ class ArraySorter
         self::$partSeparator = $separator;
     }
 
-
     /**
      * Checking value for sort order
      *
      * @param string $value
      * @return boolean
      */
-    protected static function isValidSortOrder($value)
+    protected static function isValidSortOrder(string $value) : bool
     {
         if (! is_string($value)) {
             return false;

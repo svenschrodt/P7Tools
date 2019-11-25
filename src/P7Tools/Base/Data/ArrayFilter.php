@@ -3,7 +3,7 @@
 /**
  * Filter functions for arrays
  *
- * e.g. data of non sql sources like LDAP, Webservices etc.
+ * To be used for data of non sql sources like LDAP, Webservices etc.
  *
  * @author Sven Schrodt
  * @since 2015-10-04

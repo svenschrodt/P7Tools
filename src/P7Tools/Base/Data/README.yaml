@@ -1,4 +1,5 @@
-# Data
+# \P7Tools\Base\Data
+
 Collection of classes working with simple (non-array or object) data structures:
      - Strings: ...
      - Integers: ...

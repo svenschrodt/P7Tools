@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 /**
  * P7Tools\Mvc\Router
  *
@@ -83,7 +82,7 @@ class Router
      * Current PUT parameters send within payload, when method PUT is used
      * (extracted from PHP input stream 'php://')
      *
-     * Hint: this input strem can only be read once ---> Singelton
+     * Hint: this input stream can only be read once 
      *
      * @var array
      */
@@ -96,6 +95,10 @@ class Router
      */
     private $_index = 'index.php';
 
+    /**
+     * Private constructor function for being Router Singleton
+     * 
+     */
     private function __construct()
     {
         $this->_init();
@@ -116,6 +119,13 @@ class Router
         return self::$_instance;
     }
 
+    /**
+     * Getting application Routing information from URI and Http context data
+     * [GET, POST; PUT etc.]
+     * 
+     * @TODO -> add commenting!
+     * 
+     */
     private function _init()
     {
         $parts = explode('/', $_SERVER['SCRIPT_FILENAME']);
@@ -158,6 +168,6 @@ class Router
                 }
         }
 
-        var_dump($applicationParts);
+        
     }
 }
