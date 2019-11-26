@@ -1,4 +1,4 @@
-<?php declare(strict_types=1); declare(strict_types=1);
+<?php declare(strict_types=1);
 /**
  * P7Tools\Net\Client
  *
@@ -6,12 +6,13 @@
  *
  * !Do not use in production until it is stable!
  *
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.1
+ * @since 2015-03-11
  */
 namespace P7Tools\Net;
 
@@ -99,7 +100,7 @@ class Client
      * @param int $type
      * @param int $protocol
      */
-    public function __construct($address = false, $port = false, $domain = AF_INET, $type = SOCK_STREAM, $protocol = SOL_TCP)
+    public function __construct(bool $address = false, bool $port = false, int $domain = AF_INET, int $type = SOCK_STREAM, int $protocol = SOL_TCP)
     {
        $extensions = get_loaded_extensions();
         if(!in_array('sockets', $extensions)) {
@@ -152,7 +153,7 @@ class Client
      *
      * @return bool
      */
-    public function socketDataIsComplete()
+    public function socketDataIsComplete() : bool
     {
         //TODO check if all necessary data for socket construction is available
         $success = true;
@@ -172,7 +173,7 @@ class Client
      * @param $data
      * @return int
      */
-    public function write($data)
+    public function write(string $data) : int
     {
         // todo check for valid socket
         return socket_write($this->socket, $data, strlen($data));
@@ -184,7 +185,7 @@ class Client
      * @param int $bytes
      * @return string
      */
-    public function read($bytes = 2048)
+    public function read(int $bytes = 2048) : string
     {
         $result = ' ';
         // todo check for valid socket

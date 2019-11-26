@@ -1,4 +1,6 @@
-<?php declare(strict_types=1); declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 /**
  * P7Tools\Mvc\Router
  *
@@ -10,12 +12,14 @@
  *      
  *       !Do not use in production until it is stable!
  *      
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
+ *      
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.1
  */
 namespace P7Tools\Mvc;
 
@@ -82,7 +86,7 @@ class Router
      * Current PUT parameters send within payload, when method PUT is used
      * (extracted from PHP input stream 'php://')
      *
-     * Hint: this input stream can only be read once 
+     * Hint: this input stream can only be read once
      *
      * @var array
      */
@@ -97,7 +101,6 @@ class Router
 
     /**
      * Private constructor function for being Router Singleton
-     * 
      */
     private function __construct()
     {
@@ -122,9 +125,9 @@ class Router
     /**
      * Getting application Routing information from URI and Http context data
      * [GET, POST; PUT etc.]
-     * 
-     * @TODO -> add commenting!
-     * 
+     *
+     * @todo -> add commenting!
+     *      
      */
     private function _init()
     {
@@ -143,31 +146,28 @@ class Router
             if (strlen($applicationParts[$no]) === 0) {
                 unset($applicationParts[$no]);
             }
-        
         }
-//         var_dump($applicationParts);
-//         var_dump(count($applicationParts));die;
+
+        // routing by number of given URI parts
         switch (count($applicationParts)) {
-            case 0:
+            case 0: // no controller and action given -> both default
                 echo "0";
                 $this->_controller = 'default';
                 $this->_action = 'default';
                 break;
-            case 1:
+            case 1: // no action given -> default
                 echo "1";
                 $this->_controller = array_shift($applicationParts);
                 $this->_action = 'default';
                 break;
-            default:
+            default: // all other URIs
                 echo ">1";
                 $this->_controller = array_shift($applicationParts);
                 $this->_action = array_shift($applicationParts);
                 $this->_get = $applicationParts;
-                if(count($_GET)>0) {
-                    $this->_get = array_merge($this->_get , $_GET);
+                if (count($_GET) > 0) {
+                    $this->_get = array_merge($this->_get, $_GET);
                 }
         }
-
-        
     }
 }

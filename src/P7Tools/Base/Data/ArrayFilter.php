@@ -1,12 +1,18 @@
-<?php declare(strict_types=1); declare(strict_types=1);
-
+<?php declare(strict_types = 1);
 /**
- * Filter functions for arrays
+ * P7Tools\Base\Data\ArrayFilter
+ * 
+ * Filter functions for arrays - useful in non-db contexts
  *
- * To be used for data of non sql sources like LDAP, Webservices etc.
- *
- * @author Sven Schrodt
- * @since 2015-10-04
+ *  !Do not use in production until it is stable!
+ *      
+ * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2017-10-23
+ * @link https://github.com/svenschrodt/P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
  */
 namespace P7Tools\Base\Data;
 

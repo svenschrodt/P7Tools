@@ -1,9 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * P7Tools\Mvc\Application
  *
  * !Do not use in production until it is stable!
  *
+ *
+ * @deprecated
+ * @todo - rewrite, since routing was re-implemented in \P7Tools\Mvc\Router
+ * 
  * @link https://github.com/svenschrodt/P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools

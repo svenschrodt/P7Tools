@@ -18,7 +18,7 @@ class Meta
     /**
      * Version of P7Tools library
      */
-    const VERSION = '0.0.23';
+    const VERSION = '0.1';
 
     /**
      * Location of project repository
@@ -42,7 +42,7 @@ class Meta
      *
      * @param bool $status
      */
-    public static function setDebugMode($status=false)
+    public static function setDebugMode(bool $status=false)
     {
         self::$debugMode = (bool) $status;
     }
@@ -52,7 +52,7 @@ class Meta
      *
      * @return bool
      */
-    public static function getDebugMode()
+    public static function getDebugMode(): bool
     {
         return self::$debugMode;
     }
@@ -62,7 +62,7 @@ class Meta
      *
      * @return string
      */
-    public static function getEnvironment()
+    public static function getEnvironment() : string
     {
         return php_sapi_name();
     }
@@ -75,7 +75,7 @@ class Meta
      * @param mixed $type
      * @return array
      */
-    public static function getConstants($type=false)
+    public static function getConstants($type=false) : array
     {
         $constants = get_defined_constants(true);
         if($type && array_key_exists(strtolower($type), $constants)) {
