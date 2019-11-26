@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types=1); declare(strict_types=1);
 /***
  * Base class for working with 32 bit wide masks
  */

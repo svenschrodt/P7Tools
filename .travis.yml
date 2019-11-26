@@ -1,18 +1,7 @@
 language: php
-
 php:
-  - 7.1
   - 7.2
-  - 7.3
 
-# omitting "script:" will default to phpunit
+  # omitting "script:" will default to phpunit
+script: phpunit --configuration phpunit.xml --coverage-text
 
-env:
-  matrix:
-    - DEPENDENCIES="high"
-    - DEPENDENCIES="low"
-  global:
-    - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-ansi --no-progress --no-suggest"
-
-script:
-  - ./vendor/bin/phpunit 

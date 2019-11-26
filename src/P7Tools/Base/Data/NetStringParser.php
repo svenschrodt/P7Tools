@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types=1); declare(strict_types=1);
 /**
  * NetStringParser
  * @see http://cr.yp.to/proto/netstrings.txt

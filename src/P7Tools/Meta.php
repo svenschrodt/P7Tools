@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types=1); declare(strict_types=1);
 /**
  * P7Tools\Meta - meta information for P7Tools
  *

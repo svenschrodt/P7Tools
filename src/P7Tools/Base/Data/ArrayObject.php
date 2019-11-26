@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types=1); declare(strict_types=1);
 /**
  * Abstract class for array like behaviour on objects, making them
  * - iteratable, countable,
