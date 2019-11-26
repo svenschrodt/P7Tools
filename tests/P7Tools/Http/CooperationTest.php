@@ -70,7 +70,7 @@ class CooperationTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(503, $this->response->getStatusCode());
     }
 
-    public function tearDown()
+    public function tearDown() :void
     {
         // $this->response->sendHeaders();
     }

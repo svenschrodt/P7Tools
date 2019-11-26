@@ -30,7 +30,7 @@ class ArrayHandlerTest extends \PHPUnit\Framework\TestCase
 
     // }
 
-    // public function tearDown()
+    // public function tearDown() :void
     // {
     // $diff = round((memory_get_usage() - $this->_memory)/1024*1024, 2);
     // echo PHP_EOL .'______________________' . PHP_EOL;
