@@ -4,16 +4,17 @@
  *
  * PHPUnit configuration file
  *
- * @link https://github.com/svenschrodt/P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
- * @package STools
+ * @package P7Tools
+ * @link https://github.com/svenschrodt/P7Tools
+ * @link https://travis-ci.org/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.0.23
+ * @version 0.1
  */-->
 
 
-<phpunit bootstrap="Bootstrap.php" colors="true" verbose="true" debug="true">
+<phpunit bootstrap="Bootstrap.php" colors="true" verbose="true">
     <php>
         <var name="db_dsn" value="mysql:dbname=none_defined_yet;host=gwen.stacy.example.org"/>
         <var name="db_username" value="rotcelloC"/>
@@ -23,7 +24,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Testing STools">
+        <testsuite name="Testing P7Tools">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
@@ -32,7 +33,6 @@
         <whitelist>
             <directory>./</directory>
             <exclude>
-                <directory>./tests</directory>
                 <directory>./src/public</directory>
             </exclude>
         </whitelist>

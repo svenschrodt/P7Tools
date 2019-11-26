@@ -1,8 +1,6 @@
-# P7Tools
-************************
-* IN   DEVELOPMENT -   *
-* not production ready *
-************************
+# P7Tools¹ 
+IN   DEVELOPMENT -    not production ready
+
 <pre>
 
 
@@ -111,3 +109,6 @@ Tiny web application framework and tool collection for PHP 7.2+
 # @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
 # @copyright Sven Schrodt<sven@schrodt-service.net>
 # @version 0.1
+
+--- 
+¹ painless tools
