@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * \Base\File\Logger
@@ -22,7 +24,7 @@
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  * @version 0.1
  */
-namespace \Base\File;
+namespace\Base\File;
 
 class Logger
 {
@@ -32,31 +34,46 @@ class Logger
 
     // Emergency: system is unusable
     const EMERG = 0;
+
     // Alert: action must be taken immediately
     const ALERT = 1;
+
     // Critical: critical conditions
     const CRIT = 2;
+
     // Error: error conditions
     const ERR = 3;
+
     // Warning: warning conditions
     const WARN = 4;
+
     // Notice: normal but significant condition
     const NOTICE = 5;
+
     // Informational: informational messages
     const INFO = 6;
+
     // Debug: debug-level messages
     const DEBUG = 7;
 
-    // Status für Dateinamen und Log-Level-Einträge in Log-Files
-    protected static $_status = array('EMERG','ALERT','CRIT','ERR','WARN','NOTICE','INFO','DEBUG');
+    // Severity log levels
+    protected static $_status = array(
+        'EMERG',
+        'ALERT',
+        'CRIT',
+        'ERR',
+        'WARN',
+        'NOTICE',
+        'INFO',
+        'DEBUG'
+    );
 
-    // Verzeichnis für Logdateien der Anwendung
-    protected static $_logDir = '/var/log/application/';
+    // Base Directory for logs
+    protected static $_logDir = '/var/log/php/';
 
     /**
      * Generic Logging method
-     *
-     *
+     * 
      * @param string $message
      * @param int $level
      */
@@ -76,8 +93,12 @@ class Logger
     {
         $now = date('Y-m-d H:i:s');
         $remote = (isset($_SERVER['REMOTE_ADDR'])) ? "[{$_SERVER['REMOTE_ADDR']}]" : "[N/A]";
-        // 20160602
-        $fileFix = substr(str_replace(array('-',' ',':'), '', $now), 0, 8);
+       
+        $fileFix = substr(str_replace(array(
+            '-',
+            ' ',
+            ':'
+        ), '', $now), 0, 8);
         $o = new \stdClass();
         $o->status = self::$_status[$level];
         $o->fileName = self::$_logDir . "proweb_{$fileFix}.log";
@@ -94,25 +115,25 @@ class Logger
     public function __call($method, $params)
     {
         $key = array_search(strtoupper($method), self::$_status);
-        if($key) {
+        if ($key) {
             self::_log($params[0], $key);
         } else {
-            //@TODO Error Handling
+            // @TODO Error Handling
         }
     }
 
     /**
-     * Methode mit Prüfung auf schreibbare Zieldatei
+     * Writing log entry, if log resource is writable 
      *
      * @param string $file
      * @param string $message
      */
-    public static function safeLog($file, $message)
+    public static function safeLog(string $file, string $message)
     {
-        if(is_writable($file)) {
+        if (is_writable($file)) {
             file_put_contents($file, $message, FILE_APPEND);
         } else {
-            self::_log("Die Datei $file  ist nicht schreibbar!");
+            //@TODO error handlig <-> Exception ???
         }
     }
 }
