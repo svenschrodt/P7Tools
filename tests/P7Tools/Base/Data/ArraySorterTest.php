@@ -10,7 +10,7 @@ use \P7Tools\Base\Data\ArraySorter;
 class ArraySorterTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp() : void
     {}
 
     

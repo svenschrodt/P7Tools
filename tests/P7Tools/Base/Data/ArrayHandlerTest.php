@@ -20,7 +20,7 @@ class ArrayHandlerTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(2==1+1);
     }
     
-    // public function setUp()
+    // public function setUp() : void
     // {
     // $this->_memory = memory_get_usage();
     // echo PHP_EOL .'______________________' . PHP_EOL;

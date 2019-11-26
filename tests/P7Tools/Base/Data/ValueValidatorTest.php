@@ -11,7 +11,7 @@ use P7Tools;
 class ValueValidatorTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp() : void
     {
 //         var_dump(P7Tools\Base\Data\ArrayFilter::getFilterNames());
 //         die;

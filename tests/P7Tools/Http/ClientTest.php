@@ -28,7 +28,7 @@ class ClientTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(3==='3');
     }
 
-//     public function setUp()
+//     public function setUp() : void
 //     {
 //         $this->curlClient = new CurlClient();
 //     }

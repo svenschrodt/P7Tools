@@ -18,7 +18,7 @@ class RequestTest extends \PHPUnit\Framework\TestCase
 
     protected $request;
 
-    public function setUp()
+    public function setUp() : void
     {
         \P7Tools\Dev\Mock::setSuperGlobal();
         $this->request = new Request();

@@ -19,7 +19,7 @@ class ContainerTest extends TestCase
 
     protected $testContainer;
 
-    public function setUp()
+    public function setUp() : void
     {
         // $_SERVER['QUERY_STRING'] = 'a=00&b=n';
         \P7Tools\Dev\Mock::setSuperGlobal();

@@ -17,7 +17,7 @@ class ApplicationTest extends \PHPUnit\Framework\TestCase
 
     protected $application;
 
-    public function setUp()
+    public function setUp() : void
     {
 //         \P7Tools\Dev\Mock::setSuperGlobal();
 //         $this->application = new Application();

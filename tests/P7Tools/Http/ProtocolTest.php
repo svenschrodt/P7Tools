@@ -18,7 +18,7 @@ class ProtocolTest extends \PHPUnit\Framework\TestCase
 
     protected $testContainer;
 
-    public function setUp()
+    public function setUp() : void
     {
 
     }

@@ -18,7 +18,7 @@ class CooperationTest extends \PHPUnit\Framework\TestCase
 
     protected $testContainer;
 
-    public function setUp()
+    public function setUp() : void
     {
 
         \P7Tools\Dev\Mock::setSuperGlobal();
