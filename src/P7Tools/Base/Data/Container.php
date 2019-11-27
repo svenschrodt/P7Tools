@@ -14,16 +14,15 @@
  *    contained in it are valid
  *
  * !Do not use in production until it is stable!
- *
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.0.24
  */
 namespace P7Tools\Base\Data;
-
 
 class Container implements \Iterator
 {
@@ -69,10 +68,10 @@ class Container implements \Iterator
     /**
      * Returning property named $key, if existing
      *
-     * @param $key
+     * @param string $key
      * @return null
      */
-    public function __get($key)
+    public function __get(string $key) : string
     {
         return (array_key_exists($key, $this->data)) ? $this->data[$key] : null;
     }
@@ -81,14 +80,15 @@ class Container implements \Iterator
      * Setting property named $key, if existing
      *
      * @param $key
-     * @return null
+     * @return Container
      */
-    public function __set($key, $value)
+    public function __set(string $key, string $value) 
     {
         if(!$this->isValidKey($key)) {
             throw new \InvalidArgumentException('Invalid Property ' . $key);
         }
         $this->data[$key] = $value;
+        return $this;
     }
 
     /**
@@ -97,7 +97,7 @@ class Container implements \Iterator
      * @param $key
      * @return bool
      */
-    public function __isset($key)
+    public function __isset(string $key) :bool
     {
         return isset($this->data[$key]);
     }
@@ -106,9 +106,8 @@ class Container implements \Iterator
      * Deleting property
      *
      * @param $key
-     * @return bool
      */
-    public function __unset($key)
+    public function __unset(string $key)
     {
         if (isset($this->data[$key])) {
             unset ($this->data[$key]);
@@ -126,11 +125,11 @@ class Container implements \Iterator
      * getFirstName() -> returning value of property firstName
      * setLastName('Miller') -> setting value of property lastName to 'Miller'
      *
-     * @param $name
-     * @param $data
+     * @param string $name
+     * @param mixed $data
      * @throws \ErrorException
      */
-    public function __call($name, $data)
+    public function __call(string $name, $data)
     {
         // Getting type of called function (get | set)
         $type = strtolower(substr($name, 0, 3));
@@ -178,9 +177,9 @@ class Container implements \Iterator
      * Checking if key is valid name for property
      *
      * @param $key
-     * @return int
+     * @return bool
      */
-    public function isValidKey($key)
+    public function isValidKey(string $key) :bool
     {
         if (count($this->validKeys) == 0) {
             // Container::$validKeys is empty, so every key is valid
@@ -190,14 +189,18 @@ class Container implements \Iterator
         }
     }
 
+    
     /**
-     * Setting valid keys  for current container instance
+     *  Setting valid keys  for current container instance
      *
      * @param array $keys
-     */
-    public function setValidKeys(Array $keys)
+     * @return Container
+     * 
+     */    
+    public function setValidKeys(array $keys) : Container
     {
         $this->validKeys = $keys;
+        return $this;
     }
 
     /**
@@ -206,7 +209,7 @@ class Container implements \Iterator
      * @param array $keys
      * @return array
      */
-    public function getValidKeys()
+    public function getValidKeys() :array
     {
         return $this->validKeys;
     }
@@ -216,7 +219,7 @@ class Container implements \Iterator
      *
      * @return array
      */
-    public function getExistingKeys()
+    public function getExistingKeys() : array 
     {
         return array_keys($this->data);
     }
@@ -229,7 +232,7 @@ class Container implements \Iterator
      *
      * @return string
      */
-    public function exportInstance()
+    public function exportInstance() : string
     {
         return serialize($this);
     }
@@ -238,12 +241,14 @@ class Container implements \Iterator
      * Importing serialized instance's state
      *
      * @param $string
+     * @return Container
      */
-    public function importInstance($string)
+    public function importInstance(string $string) : Container
     {
         $temp =  unserialize($string);
         $this->setValidKeys($temp->getValidKeys());
         $this->data = $temp->data;
+        return $this;
     }
 
     // The following functions implement interface \Iterator making it possible
@@ -251,28 +256,29 @@ class Container implements \Iterator
 
     /**
      * Resetting pointer to first array element
-     *
+     * 
+     * @return Container
      */
-    public function rewind()
+    public function rewind() : Container
     {
         reset($this->data);
+        return $this;
     }
 
     /**
      * Getting current element
      *
-     * @return mixed
      */
-    public function current()
+    public function current() 
     {
         return current($this->data);
     }
 
     /**
      * Getting key of current element
-     * @return mixed
+     * @return string
      */
-    public function key()
+    public function key() : string
     {
         return key($this->data);
     }
@@ -290,7 +296,7 @@ class Container implements \Iterator
      *
      * @return bool
      */
-    public function valid()
+    public function valid() : bool
     {
         return ($this->current() !== false);
     }

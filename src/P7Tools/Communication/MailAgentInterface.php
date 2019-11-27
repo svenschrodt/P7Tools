@@ -17,19 +17,82 @@ namespace P7Tools\Communication;
 
 interface MailAgentInterface
 {
+
     /**
      * Adding recipient 'to'
+     *
      * @param string $recipient
      */
     public function addTo(string $recipient);
 
-    public function addTos(array $recipients);
-    
-    public function setSubject(string $subject);
+    /**
+     * Adding list of recipients 'to'
+     *
+     * @param array $recipients
+     * @return PhpMail
+     */
+    public function addTos(array $recipients): PhpMail;
 
-    public function setText(string $subject);
+    /**
+     * Adding recipient 'cc'
+     *
+     * @param string $recipient
+     * @return PhpMail
+     */
+    public function addCc(string $recipient): PhpMail;
 
-    public function addAttachment(string $pathToResource);
+    /**
+     * Adding list of recipients 'cc'
+     *
+     * @param array $recipients
+     * @return PhpMail
+     */
+    public function addCcs(array $recipients): PhpMail;
 
+    /**
+     * Adding recipient 'bcc'
+     *
+     * @param string $recipient
+     * @return PhpMail
+     */
+    public function addBcc(string $recipient): PhpMail;
+
+    /**
+     * Adding list of recipients 'bcc'
+     *
+     * @param array $recipients
+     * @return PhpMail
+     */
+    public function addBccs(array $recipients): PhpMail;
+
+    /**
+     * Setting subject text for current mail
+     *
+     * @param string $subject
+     * @return PhpMail
+     */
+    public function setSubject(string $subject): PhpMail;
+
+    /**
+     * Setting text for current mail
+     *
+     * @param string $subject
+     * @return PhpMail
+     */
+    public function setText(string $subject): PhpMail;
+
+    /**
+     * Adding path to filre resources to be attached to current mail
+     *
+     * @param string $pathToResource
+     * @return PhpMail
+     */
+    public function addAttachment(string $pathToResource): PhpMail;
+
+    /**
+     * Sending current mail
+     *
+     * @return bool
+     */
     public function send(): bool;
 }

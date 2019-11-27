@@ -7,6 +7,7 @@
 
 # exclude project specific temp. deprecated resources
 *..depr
+/tmp
 
 # exclude 3rd party stuff
 /vendor
