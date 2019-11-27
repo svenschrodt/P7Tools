@@ -1,6 +1,9 @@
 <?php declare(strict_types = 1);
 /**
- * Class representing specification of HTML 5
+ * Class representing specification of HTML 5 Living Standard
+ *
+ * @see https://html.spec.whatwg.org/
+ *
  *
  * @package P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
@@ -12,11 +15,13 @@
  */
 namespace P7Tools\Html;
 
-class HTml5Spec
+class Html5Spec
 {
 
     /**
      * List of valid html elements
+     * 
+     * @todo redefine structure for attributes
      * @var array
      */
     protected $_elements = [
@@ -86,5 +91,35 @@ class HTml5Spec
         'br',
         'wbr'
     ];
+    
+    /**
+     * List of global attribtes
+     * 
+     * @var array
+     */
+    protected $_globalAttributes = [
+        'accesskey',
+        'autocapitalize', 
+        'autofocus', 
+        'contenteditable', 
+        'dir', 
+        'draggable', 
+        'enterkeyhint', 
+        'hidden', 
+        'inputmode', 
+        'is',
+        'itemid', 
+        'itemprop', 
+        'itemref', 
+        'itemscope', 
+        'itemtype', 
+        'lang', 
+        'nonce', 
+        'spellcheck', 
+        'style', 
+        'tabindex', 
+        'title', 
+        'translate
+];
 }
 
