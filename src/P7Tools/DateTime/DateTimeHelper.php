@@ -17,7 +17,7 @@ class DateTimeHelper
     protected static $dbAdapter = null;
 
     /**
-     * Ermittelt die Anzahl der Tage für einen gegebenen Monat
+     * Calculating number of days in given month
      *
      * @param int $year
      * @param int $month
@@ -35,8 +35,8 @@ class DateTimeHelper
     }
 
     /**
-     * Formatiert einen DateTime-String (YYY-mm-dd HH:MM:SS) in
-     * deutsches Format
+     * Formatig DateTime string (YYY-mm-dd HH:MM:SS) to
+     * german format
      *
      * @param string $dateTime
      * @param string $dateOnly

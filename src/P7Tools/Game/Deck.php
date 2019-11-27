@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 namespace P7Tools\Game;
 
 use P7Tools\Base\Data\Symbol;
@@ -16,7 +16,14 @@ class Deck
         // 4 => 'Four',
         // 5 => 'Five',
         // 6 => 'Six',
-        7 => 'Seven',8 => 'Eight',9 => 'Nine',10 => 'Ten','J' => 'Jack','Q' => 'Queen','K' => 'King','A' => 'Ace'
+        7 => 'Seven',
+        8 => 'Eight',
+        9 => 'Nine',
+        10 => 'Ten',
+        'J' => 'Jack',
+        'Q' => 'Queen',
+        'K' => 'King',
+        'A' => 'Ace'
     );
 
     protected static $_suits = array(

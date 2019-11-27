@@ -1,10 +1,14 @@
 <?php declare(strict_types=1);
 /**
- * Creating HTML elements from PHP data structures
- *
- * @package Mpm
- * @author Sven Schrodt
- * @since 2016-02-02
+ * Class helping creation of HTML elements from PHP data structures
+ * 
+ * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
  */
 namespace P7Tools\Html;
 
@@ -21,19 +25,19 @@ class Element
     /**
      * Optional content of element
      *
-     * @var mixed
+     * @var array
      */
     protected $_content = array();
 
     /**
-     * Optional elment attributes
+     * Optional element attributes
      *
-     * @var mixed
+     * @var array
      */
     protected $_attribs = array();
 
     /**
-     * Flag, i empty element
+     * Flag, if element is empty 
      *
      * @var bool
      */
@@ -46,7 +50,7 @@ class Element
      * @param array $attribs
      * @param string $content
      */
-    public function __construct($type, array $attribs = array(), $content = null)
+    public function __construct( string $type, array $attribs = array(), Element $content = null)
     {
         $this->_type = strtolower($type);
         $this->addContent($content);
@@ -73,7 +77,7 @@ class Element
     }
 
     /**
-     * Setting eine attribute
+     * Setting attribute
      *
      * @param string $key
      * @param string $value

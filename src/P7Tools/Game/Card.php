@@ -1,5 +1,22 @@
 <?php declare(strict_types=1);
-// Farben: Kreuz = Clubs =>'', Pik = Spades =>'',
+/**
+ * P7Tools\Game\Card
+ *
+ * Class representing single card 
+ *
+ * !Do not use in production until it is stable!
+ *
+ *
+ * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2015-11-22
+ * @link https://github.com/svenschrodt/P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
+ */
+
+// GErman hint: Kreuz = Clubs =>'', Pik = Spades =>'',
 // Herz = Hearts =>'', Karo = Diamonds. W
 // erte: Ass = Ace =>'', König = King =>'',
 // Dame = Queen =>'', Bube = Jack =>'',
