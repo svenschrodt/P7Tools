@@ -1,4 +1,4 @@
-<?php declare(strict_types=1); declare(strict_types=1);
+<?php declare(strict_types=1);
 /**
  * P7Tools\Base\File\Exception
  *
@@ -16,7 +16,14 @@ namespace P7Tools\Base\File;
 
 class Exception extends \ErrorException
 {
-    public function _construct($message = '')
+    
+    const NO_SUCH_FILE_OR_DIRECTORY= '%s: No such file or directory';
+    
+    /**
+     * 
+     * @param string $message
+     */
+    public function _construct(string $message = '')
     {
         parent::__construct($message);
     }

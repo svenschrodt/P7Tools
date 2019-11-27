@@ -1,4 +1,7 @@
-<?php declare(strict_types=1); declare(strict_types=1);
+<?php
+
+declare(strict_types = 1);
+declare(strict_types = 1);
 /**
  * \Base\File\Exception
  *
@@ -16,24 +19,23 @@ namespace P7Tools\Base\File;
 
 class Config
 {
+
     protected static $_config = null;
 
     public static function getConfig($sectionOnly = false)
     {
-       if(is_null(self::$_config)) {
-           self::readConfigFile();
-       }
-       if($sectionOnly) {
-           return (isset(self::$_config[$sectionOnly]))?self::$_config[$sectionOnly]:null;
-       } else {
-           return self::$_config;
-       }
+        if (is_null(self::$_config)) {
+            self::readConfigFile();
+        }
+        if ($sectionOnly) {
+            return (isset(self::$_config[$sectionOnly])) ? self::$_config[$sectionOnly] : null;
+        } else {
+            return self::$_config;
+        }
     }
 
     protected static function readConfigFile()
     {
-        
-        self::$_config = parse_ini_file('.local.conf.php',true);
+        self::$_config = parse_ini_file('.local.conf.php', true);
     }
-
 }

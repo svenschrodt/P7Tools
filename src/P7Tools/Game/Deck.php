@@ -1,4 +1,4 @@
-<?php declare(strict_types=1); declare(strict_types=1);
+<?php declare(strict_types=1);
 namespace P7Tools\Game;
 
 use P7Tools\Base\Data\Symbol;

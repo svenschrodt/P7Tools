@@ -1,4 +1,4 @@
-<?php declare(strict_types=1); declare(strict_types=1);
+<?php declare(strict_types=1);
 // Farben: Kreuz = Clubs =>'', Pik = Spades =>'',
 // Herz = Hearts =>'', Karo = Diamonds. W
 // erte: Ass = Ace =>'', König = King =>'',

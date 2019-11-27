@@ -1,4 +1,4 @@
-<?php declare(strict_types=1); declare(strict_types=1);
+<?php declare(strict_types=1);
 //DEFINE('INTEGER_LENGTH',31); // Stupid signed bit.
 namespace P7Tools\Base\Data;
 
