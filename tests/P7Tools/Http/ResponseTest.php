@@ -47,7 +47,7 @@ class ResponseTest extends \PHPUnit\Framework\TestCase
 
     public function testStatusCode()
     {
-        $this->assertEquals(200, $this->response->getStatusCode());
+        $this->assertEquals(0, $this->response->getStatusCode());
         $this->response->setStatusCode(503);
         $this->assertEquals(503, $this->response->getStatusCode());
     }

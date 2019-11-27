@@ -2,33 +2,46 @@
 /**
  * P7Tools\Http\Request
  *
- * Class to manage HTTP requests in context of Web MVC application
+ * Class to manage HTTP requests 
  *
  * !Do not use in production until it is stable!
  *
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.1
  */
 namespace P7Tools\Http;
 
 
 class Request extends \P7Tools\Base\Data\Container
 {
-
-
+    /**
+     * Meta information from http context
+     * 
+     * @var array
+     */
+    protected $_data = array();
+    /**
+     * Generic costructor function
+     */
     public function __construct()
     {
+        
         $this->init();
     }
 
+    /**
+     * Getting meta information from http context
+     * 
+     */
     protected function init()
     {
 
-        $this->data = array(
+        $this->_data = array(
 
             'queryString' => $_SERVER['QUERY_STRING'],
             'uri' => $_SERVER['REQUEST_URI'],
@@ -48,8 +61,8 @@ class Request extends \P7Tools\Base\Data\Container
             'connection' => $_SERVER['HTTP_CONNECTION']
         );
         // extract URL from URI if needed
-        $this->data['url'] = (strstr($_SERVER['REQUEST_URI'], '?')) ? substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], '?') ): $_SERVER['REQUEST_URI'];
-        list($this->data['scheme'], $this->data['version']) = explode('/', $this->data['protocol']);
+        $this->_data['url'] = (strstr($_SERVER['REQUEST_URI'], '?')) ? substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], '?') ): $_SERVER['REQUEST_URI'];
+        list($this->_data['scheme'], $this->_data['version']) = explode('/', $this->_data['protocol']);
     }
 
 
@@ -57,7 +70,7 @@ class Request extends \P7Tools\Base\Data\Container
      * @param bool $url
      * @return array
      */
-    public function getUrlParts($url = false)
+    public function getUrlParts(bool $url = false)
     {
         if (!$url) {
             $url = $this->url;

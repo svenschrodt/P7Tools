@@ -80,16 +80,30 @@ class Card
         return $this->_suit;
     }
 
-    public function isTrump()
+    /**
+     * Getting info, if current instance is a trump (not Donald, nor president)
+     * 
+     * @return boolean|string
+     */
+    public function isTrump() : bool
     {
         return $this->_isTrump;
     }
 
+    /**
+     * Setting current instance as trump (not Donald, nor president)
+     *
+     * @return Card
+     */
     public function setTrump()
     {
         $this->_isTrump = true;
+        return $this;
     }
 
+    /**
+     * 
+     */
     public function unsetTrump()
     {
         $this->_isTrump = false;

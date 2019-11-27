@@ -13,13 +13,15 @@
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  * @version 0.1
  */
+
 namespace P7Tools\Http;
 
 class Protocol
 {
-    // Available versions by now -> HTTTP 2.x to come...
+    //@todo add mor comments
     const VERSION_10 = '1.0';
     const VERSION_11 = '1.1';
+    const VERSION_20 = '2.0';
 
     //Methods
     const METHOD_OPTIONS = 'OPTIONS';
@@ -48,7 +50,7 @@ class Protocol
      * @link  http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10
      * @var array
      */
-    public $statusCodes = array(
+    public static $statusCodes = array(
         // Informational 1xx
         100 => 'Continue', 101 => 'Switching Protocols', 102 => 'Processing',
 
@@ -88,7 +90,7 @@ class Protocol
      */
     public function getStatusCodes($codeOnly = false)
     {
-        return ($codeOnly) ? array_keys($this->statusCodes) : $this->statusCodes;
+        return ($codeOnly) ? array_keys(self::$statusCodes) : self::$statusCodes;
     }
 
     /**

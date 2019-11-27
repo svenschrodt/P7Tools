@@ -4,7 +4,7 @@
  *
  * Testing, if PHPUnit is working
  * 
- * Used for q&d test 
+ * Used for q&d tests
  * 
  * @todo delete in ¹st stable version
  * 
@@ -26,10 +26,7 @@ class FooTest extends TestCase
         $this->assertTrue(3 - 2 == 1);
         $this->expectException('P7Tools\Base\File\Exception');
         $bar = new \P7Tools\Foo();
-        unset($bar);
-        
-
-        
+        unset($bar);        
     }
 }
     

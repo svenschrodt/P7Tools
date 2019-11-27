@@ -1,18 +1,26 @@
 <?php declare(strict_types=1);
 
 /**
+ * \P7Tools\Html\Form
+ * 
  * Creating HTML form elements from PHP data structures
- *
+ * 
+ * 
  * @package P7Tools
- * @author Sven Schrodt
- * @since 2016-02-02
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net> * @since 2016-02-02
  */
 namespace P7Tools\Html;
+
 class Form
 {
 
     /**
-     * creating select element
+     * Creating select element
      *
      * @param string $id
      * @param array $attribs
@@ -41,7 +49,7 @@ class Form
     }
 
     /**
-     *
+     * Creating radio element
      * @param string $name
      * @param array $attribs
      * @param array $data

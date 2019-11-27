@@ -1,4 +1,21 @@
 <?php declare(strict_types = 1);
+/**
+ * P7Tools\Game\Deck
+ *
+ * Class representing full deck of cards 
+ *
+ * !Do not use in production until it is stable!
+ *
+ *
+ * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
+ */
+
 namespace P7Tools\Game;
 
 use P7Tools\Base\Data\Symbol;

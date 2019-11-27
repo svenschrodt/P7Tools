@@ -1,24 +1,26 @@
 <?php declare(strict_types=1);
 /**
-<?php declare(strict_types=1);
-/**
  * P7Tools\Http\Message
  *
  * Class representing HTTP requests and responses (header + SEPARATOR () + Body)
  *
  * !Do not use in production until it is stable!
  *
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.1
  */
 namespace P7Tools\Http;
 
 class Message extends \P7Tools\Base\Data\Container
 {
+    /**
+     * Generic constructor function
+     */
     public function __construct($message = null)
     {
         $header = null;
