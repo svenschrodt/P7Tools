@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 /**
  * P7Tools\Mvc\TemplateView
+ * 
+ * Class to handle templates of (MVC) layer view
  *
  * !Do not use in production until it is stable!
  *
@@ -16,30 +18,64 @@ namespace P7Tools\Mvc;
 
 class TemplateView implements ViewInterface
 {
-
+    /**
+     * 
+     * @var array
+     */
+    protected $_content = [];
+    
+    /**
+     * Generic constructor function 
+     *  
+     */
     public function __construct()
     {
 
     }
 
-    public function assign($name, $value)
+    /**
+     * Assigning named attribute to current view
+     * 
+     * @see \P7Tools\Mvc\ViewInterface::assign()
+     * @ return TemplateView
+     */
+    public function assign($name, $value) : TemplateView
     {
-
+        $this->_content[$name] = $value;
+        return $this;
     }
 
-    public function render()
+    /**
+     * Rendering view 
+     * 
+     * {@inheritDoc}
+     * @see \P7Tools\Mvc\ViewInterface::render()
+     */
+    public function render() : string
     {
-
+        
     }
 
-    public function setViewPath($path)
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \P7Tools\Mvc\ViewInterface::setViewPath()
+     * @return TemplateView
+     */
+    public function setViewPath($path) : TemplateView
     {
-
+        return $this;
     }
 
-    public function setCurrentTemplate($path)
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \P7Tools\Mvc\ViewInterface::setCurrentTemplate()
+     * @return TemplateView
+     */
+    public function setCurrentTemplate($path) : TemplateView
     {
-
+        return $this;
     }
 
 }

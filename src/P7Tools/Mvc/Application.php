@@ -52,8 +52,20 @@ class Application
         }
     }
 
-    public function run()
+
+    
+    /**
+     * Running application 
+     *  -> calling current action of current controller
+     * 
+     * @return \P7Tools\Mvc\Application
+     */
+    public function run() : \P7Tools\Mvc\Application
     {
+        /**
+         * Temp. while DEV showing member attributes 
+         * @var array $object
+         */
         $object = [
             'ctr' => $this->_controller,
             'act' => $this->_action,
@@ -62,7 +74,9 @@ class Application
             'ctr' => $this->_response,
             'act' => $this->_request
         ];
+        // 
         echo \P7Tools\Dev\Helper::getInfo($object, false, true);
+        return $this;
     }
 
     /**

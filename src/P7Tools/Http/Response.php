@@ -76,11 +76,12 @@ class Response
 
     /**
      * Setting current http status code
-     *
-     * @param
-     *            $status
+     * 
+     * @param string $status
+     * @throws \InvalidArgumentException
+     * @return \P7Tools\Http\Response
      */
-    public function setStatusCode($status)
+    public function setStatusCode( string $status) : Response
     {
         // Checking if code is a valid status code (== key in array $this->statusCodes)
         if (! in_array($status, array_keys($this->protocol::$statusCodes))) {
@@ -88,14 +89,16 @@ class Response
         } else {
             $this->currentStatus = $status;
         }
+        
+        return $this;
     }
 
     /**
      * Returning current status code
      *
-     * @return mixed
+     * @return string
      */
-    public function getStatusCode()
+    public function getStatusCode() : string 
     {
         return $this->currentStatus;
     }
@@ -104,8 +107,7 @@ class Response
      * Initialize response with some default values
      *
      * @param bool $setDefaultHeaders
-     *            *
-     *            
+     * @todo Make it protected after DEV phase
      */
     public function init(bool $setDefaultHeaders = false)
     {
@@ -157,7 +159,6 @@ class Response
     }
 
     /**
-     * *
      * Returning all HTTP headers of current instance
      *
      * @return array
@@ -168,7 +169,7 @@ class Response
     }
 
     /**
-     * Setting responsive body of current instance
+     * Setting body of current instance
      *
      * @param string $body
      * @return Response
@@ -180,7 +181,7 @@ class Response
     }
 
     /**
-     * Returning responsive body of current instance
+     * Returning body of current instance
      *
      * @return string $body
      * @return mixed

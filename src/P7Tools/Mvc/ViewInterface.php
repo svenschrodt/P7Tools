@@ -17,13 +17,33 @@ namespace P7Tools\Mvc;
 interface ViewInterface
 {
 
-    public function assign($name, $value);
+    /**
+     * Assigning named attribute to current view 
+     * @param string $name
+     * @param mixed $value
+     */
+    public function assign(string $name, $value);
 
+    /**
+     * Rendering current view
+     */
     public function render();
 
-    public function setViewPath($path);
+    /**
+     * Setting current path to view templates
+     * 
+     * @param string $path
+     * @return \P7Tools\Mvc\ViewInterface
+     */
+    public function setViewPath(string $path);
 
-    public function setCurrentTemplate($path);
+    /**
+     * Setting current path to view templates
+     *
+     * @param string $path
+     * @return \P7Tools\Mvc\ViewInterface
+     */
+    public function setCurrentTemplate(string $path);
 
 
 } 

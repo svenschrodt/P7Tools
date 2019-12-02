@@ -25,18 +25,19 @@ class Request extends \P7Tools\Base\Data\Container
      * @var array
      */
     protected $_data = array();
+   
     /**
      * Generic costructor function
      */
     public function __construct()
     {
-        
         $this->init();
     }
 
     /**
      * Getting meta information from http context
      * 
+     * @todo Do more commenting 
      */
     protected function init()
     {
@@ -67,6 +68,8 @@ class Request extends \P7Tools\Base\Data\Container
 
 
     /**
+     * @deprecated
+     * @TODO Using fucntionality of \P7Tools\Mvc\Router
      * @param bool $url
      * @return array
      */

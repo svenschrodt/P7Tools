@@ -20,6 +20,8 @@ class Message extends \P7Tools\Base\Data\Container
 {
     /**
      * Generic constructor function
+     * 
+     *  @todo - adding functions
      */
     public function __construct($message = null)
     {
