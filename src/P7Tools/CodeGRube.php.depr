@@ -1,3 +1,24 @@
+<?php
+
+
+;
+// var_dump();
+// $myR = \P7Tools\Mvc\Router::getInstance();
+//  var_dump($myR);
+//  $cfg = \P7Tools\Base\File\Config::getConfig();
+//  var_dump($cfg);
+//  $file = file('html5_elements.txt');
+//  var_dump($file);
+//  echo '<pre>';
+//  foreach($file as $line) {
+//      $tmp= explode('  ', $line);
+//      $ele = trim($tmp[3]);
+//     echo "'{$ele}', ";
+// // die;
+//  }
+?>
+
+
 <?php declare(strict_types=1);
 //DEFINE('INTEGER_LENGTH',31); // Stupid signed bit.
 namespace P7Tools\Base\Data;

@@ -6,7 +6,7 @@
 .buildpath
 
 # exclude project specific temp. deprecated resources
-*..depr
+*.depr
 /tmp
 
 # exclude 3rd party stuff

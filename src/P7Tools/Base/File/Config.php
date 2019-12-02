@@ -1,27 +1,37 @@
-<?php
-
-declare(strict_types = 1);
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 /**
- * \Base\File\Exception
- *
+ * \Base\File\Config 
+ * 
+ * Class representing file based configurations
  *
  * !Do not use in production until it is stable!
  *
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.1
  */
+ 
 namespace P7Tools\Base\File;
 
 class Config
 {
 
+    /**
+     * Static member holding info from file system based configuration 
+     * @var array | null;
+     */
     protected static $_config = null;
 
+    /**
+     * Getting config information 
+     * 
+     * @param boolean $sectionOnly
+     * @return NULL|unknown
+     */
     public static function getConfig($sectionOnly = false)
     {
         if (is_null(self::$_config)) {
@@ -34,6 +44,9 @@ class Config
         }
     }
 
+    /**
+     * @TODO - getting file path info dynamically
+     */
     protected static function readConfigFile()
     {
         self::$_config = parse_ini_file('.local.conf.php', true);

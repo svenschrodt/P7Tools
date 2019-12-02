@@ -87,7 +87,7 @@ class Response
         if (! in_array($status, array_keys($this->protocol::$statusCodes))) {
             throw new \InvalidArgumentException('Invalid Code');
         } else {
-            $this->currentStatus = $status;
+            $this->currentStatus = (int) $status;
         }
         
         return $this;
@@ -96,9 +96,9 @@ class Response
     /**
      * Returning current status code
      *
-     * @return string
+     * @return int
      */
-    public function getStatusCode() : string 
+    public function getStatusCode() : int
     {
         return $this->currentStatus;
     }

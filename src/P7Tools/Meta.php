@@ -4,19 +4,20 @@
  *
  * !Do not use in production until it is stable!
  *
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.1
  */
 namespace P7Tools;
 
 class Meta
 {
     /**
-     * Version of P7Tools library
+     * Current version of P7Tools library
      */
     const VERSION = '0.1';
 
