@@ -16,7 +16,7 @@
 use P7Tools\Base\File\Exception as FileException;
 
 define('P7T_NS', '\\P7Tools');
-define('PROJECT', 'P7Tools');
+define('P7T_LIB_DIR', 'P7Tools');
 /**
  *
  * @todo Writing PSR* compliant using auto loader with
@@ -26,10 +26,12 @@ define('PROJECT', 'P7Tools');
  */
 
 spl_autoload_register(function ($className) {
+    
+    // Getting parts of (sub) namespaces from URI    
     $parts = explode('\\', $className);
     
-    // Check if namespac of class to be instantiated is blongng to us
-    if (substr($className, 0, 7) === PROJECT) {
+    // Check if namespace of class to be instantiated is belonging to us (P7Tools framework)
+    if (substr($className, 0, 7) === P7T_LIB_DIR) {
         $file = 'src/' . str_replace('\\', '/', $className) . '.php';
 
         if (file_exists($file)) {

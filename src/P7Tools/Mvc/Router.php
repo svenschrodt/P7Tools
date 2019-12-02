@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 /**
  * P7Tools\Mvc\Router
  *
@@ -121,6 +119,29 @@ class Router
         }
         return self::$_instance;
     }
+    
+    
+    /**
+     * Getting name of current controller retrieved from URI routing
+     * (part of URI or default fallback)
+     *
+     * @return string
+     */
+    public function getController() : string
+    {
+        return $this->_controller;
+    }
+    
+    /**
+     * Getting name of current action retrieved from URI routing
+     * (part of URI or default fallback)
+     *
+     * @return string
+     */
+    public function getAction() : string 
+    {
+        return $this->_action; 
+    }
 
     /**
      * Getting application Routing information from URI and Http context data
@@ -151,17 +172,17 @@ class Router
         // routing by number of given URI parts
         switch (count($applicationParts)) {
             case 0: // no controller and action given -> both default
-                echo "0";
+
                 $this->_controller = 'default';
                 $this->_action = 'default';
                 break;
+                
             case 1: // no action given -> default
-                echo "1";
                 $this->_controller = array_shift($applicationParts);
                 $this->_action = 'default';
                 break;
+                
             default: // all other URIs
-                echo ">1";
                 $this->_controller = array_shift($applicationParts);
                 $this->_action = array_shift($applicationParts);
                 $this->_get = $applicationParts;

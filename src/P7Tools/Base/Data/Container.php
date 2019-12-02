@@ -142,16 +142,6 @@ class Container implements \Iterator
             $argument = $data[0];
         };
 
-        // TODO remove this after finishing development of P7Tools
-        // @codeCoverageIgnoreStart
-        if(\P7Tools\Mvc\Application::$showDebugInfo) {
-            echo "$type called for $key";
-            if (isset($argument)) {
-                echo " with argument: '$argument'(" . gettype($argument) . ")";
-            }
-            echo "\n";
-        }
-        // @codeCoverageIgnoreEnd
 
         // calling actual getter | setter
         switch($type) {
