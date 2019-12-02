@@ -1,10 +1,10 @@
 # \P7Tools\Base\Data
 
-Collection of classes working with simple (non-array or object) data structures:
+Collection of classes working with simple data structures:
      - Strings: ...
      - Integers: ...
      - Floats: ...
      
 # Hint: since PHP 7 string, int etc. are reserved words, so the basic class names for those 
-# data types are build with the suffix Class, like in \stdClass - e.g: StringClass
+# data types are build with the suffix 'Class', like in \stdClass - e.g: StringClass
 

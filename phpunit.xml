@@ -2,7 +2,7 @@
 <!--**
  * P7Tools
  *
- * PHPUnit configuration file
+ * PHPUnit configuration file for testing units of P7Tools library
  *
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
@@ -15,7 +15,8 @@
 
 
 <phpunit bootstrap="Bootstrap.php" colors="true" verbose="true">
-    <php>
+	<php>
+		<!-- fake parameter parameters -->
         <var name="db_dsn" value="mysql:dbname=none_defined_yet;host=gwen.stacy.example.org"/>
         <var name="db_username" value="rotcelloC"/>
         <var name="db_password" value="1an3l33r_1ivan"/>
@@ -39,6 +40,6 @@
     </filter>
     <logging>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-        <!-- log type="coverage-html" target="../coverage_reports/STools" lowUpperBound="35" highLowerBound="70"/ -->
+        <!-- log type="coverage-html" target="../coverage_reports/P7Tools" lowUpperBound="35" highLowerBound="70"/ -->
     </logging>
 </phpunit>

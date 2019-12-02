@@ -1,6 +1,6 @@
 <?php
 /**
- * P7Tools\Http\CooperationTest
+ * CooperationTest
  *
  * Testing co operating of HTTP components
  *
@@ -48,7 +48,6 @@ class QueryTest extends \PHPUnit\Framework\TestCase
 //             'id' =>99,
 //         ))->addOr("name='Peter'");
 //         ;
-
         $q = new Insert(array(
             'user_name'=>'Pauly',
             'email' =>'no-reply@example.net',
@@ -56,7 +55,7 @@ class QueryTest extends \PHPUnit\Framework\TestCase
              'dob'=>'23.05.1949'
         ));
         $q->into('user_account_fr');
-
+echo $q;
 //         $select  = $q->select(array(
 //             'id',
 //             'user_name',

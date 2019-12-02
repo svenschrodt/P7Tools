@@ -15,7 +15,7 @@
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  * @version 0.0.24
  */
- */
+ 
 namespace P7Tools\Base\Data;
 
 abstract class MultiArrayObject implements \Iterator, \Countable
