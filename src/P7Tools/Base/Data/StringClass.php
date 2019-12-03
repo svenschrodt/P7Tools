@@ -21,7 +21,7 @@ declare(strict_types = 1);
  */
 namespace P7Tools\Base\Data;
 
-use P7Tools\Xml\Validator;
+use P7Tools\Tools\ValidatorInterface;
 
 class StringClass
 {
@@ -113,7 +113,6 @@ class StringClass
         return $this;
    }
    
-   
    /**
     * Settting string content -current content will be overwritten
     *
@@ -163,9 +162,17 @@ class StringClass
          */ 
         return explode($boundary , $this->_content); 
     }
-    
-    public function validatesTo(ValidatorInterface $validator)
+   
+    /**
+     * Generic validator function uses external validator classes implementing
+     * \P7Tools\Tools\ValidatorInterface 
+     * 
+     * @param ValidatorInterface $validator
+     * @return bool
+     */
+    public function validatesTo(ValidatorInterface $validator) : bool
     {
+        // Explicit type cast here: we want to validate the _string representation_ of currrent instance 
         return  $validator->isValid((string) $this->_content);
     }
     

@@ -8,6 +8,8 @@ declare(strict_types = 1);
  * - camelCase
  * - Camelcase
  * - snake_case
+ * - URI encoded
+ * - base64 encode etc.
  *
  * @todo recognizing current convention types
  *      
@@ -19,6 +21,7 @@ declare(strict_types = 1);
  * @version 0.1
  * @since 2019-12-03
  * @link https://github.com/svenschrodt/P7Tools
+ * @used-by StringClass
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  */
@@ -67,5 +70,20 @@ class StringNameTransformer
         }
         $glued = implode('', $tmp);
         return ($upperFirst) ? $glued : lcfirst($glued);
+    }
+    
+    /**
+     * Encodig string for usage as URI (part) 
+     * 
+     * @see https://www.php.net/manual/de/function.urlencode.php
+     * @see https://www.php.net/manual/de/function.rawurlencode.php
+     * @see http://www.faqs.org/rfcs/rfc3986
+     * @param string $string
+     * @param bool $accordingRfc3986
+     * @return string
+     */
+    public static function getUrlEncoded(string $string, bool $accordingRfc3986=false) : string
+    {
+        return ($accordingRfc3986) ? rawurldecode($string) : urlencode($string);
     }
 }

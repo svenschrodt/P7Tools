@@ -1,8 +1,8 @@
 # TODO list
 
    - Explaining types of validation:
-      - Value
-      - Type
-      - ValidatorInterface
+      - Value (arrays and scalars)
+      - Type  (arrays and scalars)
+      - ValidatorInterface  (objects)
       		- RegExValidator
       		- CurrencyValidator 
