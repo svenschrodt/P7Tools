@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 /**
  * P7Tools\Base\Data\Transformer
+ * 
+ * Transforming between file contents and  data structures 
  *
  * !Do not use in production until it is stable!
  *
@@ -23,7 +25,7 @@ class Transformer
      * @return array
      * @throws FileException
      */
-    public static function getDataFromIniFile($fileName)
+    public static function getDataFromIniFile(string $fileName) : array
     {
         if(!file_exists($fileName)) {
             throw new FileException('File does not exists');
@@ -33,11 +35,12 @@ class Transformer
     }
 
     /***
+     * Transforming Container object to @author sven
+
      * @param Container $data
      * @return array
-     * @codeCoverageIgnore
      */
-    public static function getArrayFromContainerObject(\P7Tools\Base\Data\Container $data)
+    public static function getArrayFromContainerObject(\P7Tools\Base\Data\Container $data) : array 
     {
         $dataAsArray = array();
         foreach($data as $key => $value) {
@@ -47,11 +50,13 @@ class Transformer
     }
 
     /**
+     * Transforming array structure to Contianer object
+     * 
      * @param array $data
-     * @return Container
+     * @return \P7Tools\Base\Data\Container
      * @codeCoverageIgnore
      */
-    public static function getContainerObjectFromArray(Array $data)
+    public static function getContainerObjectFromArray(Array $data) : \P7Tools\Base\Data\Container
     {
         $container = new \P7Tools\Base\Data\Container();
         foreach($data as $key => $value) {

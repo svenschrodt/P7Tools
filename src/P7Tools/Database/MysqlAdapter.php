@@ -1,9 +1,9 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 /**
- * \P7Tools\Database\MysqlAdapter 
- * 
+ * \P7Tools\Database\MysqlAdapter
+ *
  * Adapter for Mysql PDO functionality
- *  
+ *
  * @package P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @version 0.1
@@ -16,7 +16,7 @@ namespace P7Tools\Database;
 
 use P7Tools\Base\File\Config;
 
-class MySqlAdapter
+class MysqlAdapter
 {
 
     /**
@@ -37,8 +37,8 @@ class MySqlAdapter
 
     /**
      * Static member for (singleton) instance of current PDO adapter
-     * 
-     * @var MySqlAdapter | null 
+     *
+     * @var MySqlAdapter | null
      */
     private static $_instance = null;
 
@@ -51,11 +51,11 @@ class MySqlAdapter
 
     /**
      * Auto increment ID of last INSERT statement
-     * 
+     *
      * @var integer
      */
     private $_lastId = 0;
-    
+
     /**
      * Getter for static instance (Singleton)
      *
@@ -72,7 +72,7 @@ class MySqlAdapter
 
     /**
      * Constructor function
-     * 
+     *
      * - connecting to db server via this PDO adapter
      * - setting character encoding to UTF-8
      *
@@ -130,7 +130,7 @@ class MySqlAdapter
      */
     public function insert(string $sql): int
     {
-        //@TODO -> getting INSERT statement dynamically from PHP data structures
+        // @TODO -> getting INSERT statement dynamically from PHP data structures
         // and \P7Tools\Database\SQL\Query* classes
         $this->_stmt = $this->_dbh->query($sql);
         $this->_lastId = $this->_dbh->lastInsertId();
@@ -138,8 +138,9 @@ class MySqlAdapter
     }
 
     /**
-     * Fetching row(s)
+     * Fetching row(s) as Object[] (default: \stdClass[])
      *
+     * @see MysqlAdapter::fetchByStyle()
      * @param string $class
      * @return array
      */
@@ -152,12 +153,24 @@ class MySqlAdapter
     }
 
     /**
+     * Fetching result as array of arrays by style
+     *
+     * @see https://www.php.net/manual/de/pdostatement.fetchall.php
+     * @param int $style
+     * @return array
+     */
+    public function fetchByStyle(int $style = \PDO::FETCH_COLUMN)
+    {
+        return $this->_stmt->fetchAll($style);
+    }
+
+    /**
      * Quoting string for sql statement
      *
      * @param string $string
      * @return string
      */
-    public function quote(string $string) : string
+    public function quote(string $string): string
     {
         return $this->_dbh->quote($string);
     }

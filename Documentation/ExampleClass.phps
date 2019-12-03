@@ -70,7 +70,9 @@ class ArrayHandler extends MultiArrayObject
     
     /**
      * Internal pointer to current 'state of operation' of array
-     *
+     * 
+     * @used-by ArrayHandler::rollBack()
+     * 
      * @var int
      */
     protected $_current = 0;

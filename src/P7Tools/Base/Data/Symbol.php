@@ -2,8 +2,8 @@
 /**
  * P7Tools\Base\Data\String
  *
- *
- *
+ * @todo Commenting!!!
+ * 
  * @link https://github.com/svenschrodt/P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
@@ -17,6 +17,17 @@ class Symbol
 {
 
     // simple symbols
+    
+    /**
+     * Constant name for underscore (aliases: underline, underdash, low line or low dash)
+     * 
+     * @var string
+     */
+    const SINGLE_UNDERSCORE = "_";
+    
+    
+    const SINGLE_HYPHEN = "-";
+    
     const SINGLE_QUOTE = "'";
 
     const DOUBLE_QUOTE = '"';

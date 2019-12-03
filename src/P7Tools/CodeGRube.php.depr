@@ -1,6 +1,73 @@
 <?php
 
+/**
+     * Returning file path for current OS
+     *
+     * @param array $data
+     * @return string
+     */
+    public static function getFilePathFromParts(array $data)
+    {
+        return implode(DIRECTORY_SEPARATOR, $data);
+    }
 
+// echo Helper::getInfo($_SERVER, false, true);
+
+/**
+ * Building (singleton) instance of router
+ */
+
+// @todo make it configurable !!
+define('APP_NS', 'TestAppSven');
+
+// $app = new \P7Tools\Mvc\Application(APP_NS);
+// try {$app->run();
+// } catch (\Exception $e) {
+// echo $e->getMessage();
+// }
+// $dbh = new \P7Tools\Database\MySqlAdapter();
+// var_dump($dbh);
+
+// $cfg = \P7Tools\Base\File\Config::getConfig('db');
+// var_dump($cfg);
+
+
+echo '<pre>';
+$dbh = \P7Tools\Database\MySqlAdapter::getInstance();
+$dbh->query('DESCRIBE ikr');
+$dta = $dbh->fetch();
+echo Helper::getInfo($dta);
+
+// print_r(\P7Tools\Meta::getEnvironment());
+
+// $foo = new \P7Tools\Tools\SourceTemplate();
+// echo $foo->getAutoLoaderSource('Minz', '/home/sven/application/Minz');
+
+// $data = [
+//     'license' => 'CopyLeft reversed!Ford!',
+//     'package' => 'Minz',
+//     'author' => 'sven',
+//     'see' => 'http:://example.org/foo.php',
+//     'since' => '1970-12-09',
+//     'param' => [
+//         'string $foo',
+//         'int $bar',
+//         'array $multi',
+//         'stdClass results',
+       
+//     ],
+//     'return' => 'array $foo'
+// ];
+// $idt = '    ';
+// $foo = new \P7Tools\Tools\DocBlockMaker();
+
+// $foo->addTags(['todo' => 'Adding validation of user input', 'fixme' => 'Repairing character encoding']);
+
+// echo $foo->getStartBlock($idt) . PHP_EOL ;
+// echo $foo->getTagList($data, $idt). PHP_EOL ;
+// echo $foo->getEndBlock($idt) . PHP_EOL ;
+ 
+ 
 ;
 // var_dump();
 // $myR = \P7Tools\Mvc\Router::getInstance();
