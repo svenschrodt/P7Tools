@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 
 /**
+ * \P7Tools\Base\Data\ArrayHandler 
+ * 
  * Class handling fluent operations on multi dimensional arrays
  * with optional history and undo functionality
  *
@@ -24,11 +26,30 @@ class ArrayHandler extends MultiArrayObject
 {
 
     // @TODO implement history on|off switch
+    
+    /**
+     * Flag value controlling manipulation history is used   
+     * 
+     * @var integer
+     */
     const HISTORY_MODE_ON = 0;
 
+    /**
+     * Flag value controlling manipulation history is NOT used
+     * 
+     * @var integer
+     */
+    
     const HISTORY_MODE_OFF = 1;
 
-    protected $_debug =true;
+    /**
+     * Flag for debugging information 
+     * 
+     * Set to false on production boxes
+     * 
+     * @var bool
+     */
+    protected $_debug = true;
 
     /**
      * Internal representation of data
@@ -50,7 +71,7 @@ class ArrayHandler extends MultiArrayObject
      * @param array $options
      * @return \P7Tools\Base\Data\ArrayHandler
      */
-    public function setOptions(array $options)
+    public function setOptions(array $options) : ArrayHandler
     {
         // @TODO implement
         return $this;
@@ -62,9 +83,10 @@ class ArrayHandler extends MultiArrayObject
      *
      * @param string $key
      * @param string $direction
+     * @param string $type
      * @return \P7Tools\Base\Data\ArrayHandler
      */
-    public function sort($key, $direction = 'asc', $type = 'numeric')
+    public function sort(string $key, string $direction = 'asc', string $type = 'numeric') : ArrayHandler
     {
         $tmp = $this->getCurrent();
         // @TODO switch by type

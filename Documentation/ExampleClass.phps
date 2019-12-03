@@ -34,5 +34,81 @@ namespace P7Tools\Base\Data;
 
 class ArrayHandler extends MultiArrayObject
 {
+    
+    // @TODO implement history on|off switch
+    
+    /**
+     * Flag value controlling manipulation history is used
+     *
+     * @var integer
+     */
+    const HISTORY_MODE_ON = 0;
+    
+    /**
+     * Flag value controlling manipulation history is NOT used
+     *
+     * @var integer
+     */
+    
+    const HISTORY_MODE_OFF = 1;
+    
+    /**
+     * Flag for debugging information
+     *
+     * Set to false on production boxes
+     *
+     * @var bool
+     */
+    protected $_debug = true;
+    
+    /**
+     * Internal representation of data
+     *
+     * @var array
+     */
+    protected $_data = array();
+    
+    /**
+     * Internal pointer to current 'state of operation' of array
+     *
+     * @var int
+     */
+    protected $_current = 0;
+    
+    /**
+     * Setting options
+     *
+     * @param array $options
+     * @return \P7Tools\Base\Data\ArrayHandler
+     */
+    public function setOptions(array $options) : ArrayHandler
+    {
+        // @TODO implement
+        return $this;
+    }
+    
+    /**
+     * Sorting elements with key $key numerically or aplhabetically
+     * depending on type
+     *
+     * @param string $key
+     * @param string $direction
+     * @param string $type
+     * @return \P7Tools\Base\Data\ArrayHandler
+     */
+    public function sort(string $key, string $direction = 'asc', string $type = 'numeric') : ArrayHandler
+    {
+        $tmp = $this->getCurrent();
+        // @TODO switch by type
+        if ($type == 'numeric') {
+            ArraySorter::sortByKeyNumeric($tmp, $key, $direction);
+        } else {
+            ArraySorter::sortByKeyAlpha($tmp, $key, $direction);
+        }
+        // increase counter
+        $this->_current ++;
+        $this->_data[$this->_current] = $tmp;
+        return $this;
+    }
 }
 
