@@ -65,9 +65,9 @@ class ArraySorter
      * 'name' => 'Meaning of life'));
      * // sorting by id descending
      * Common_Helper_Array::sortByKey($data, 'id', 'desc');
-     * </code
+     * </code>
      *
-     * @author Sven Schrodt
+     * @author Sven Schrodt<sven@schrodt-service.net>
      * @param array $array
      * @param String $sortKey
      */

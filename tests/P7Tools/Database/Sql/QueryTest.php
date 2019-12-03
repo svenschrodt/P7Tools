@@ -55,7 +55,7 @@ class QueryTest extends \PHPUnit\Framework\TestCase
              'dob'=>'23.05.1949'
         ));
         $q->into('user_account_fr');
-echo $q;
+// echo $q;
 //         $select  = $q->select(array(
 //             'id',
 //             'user_name',

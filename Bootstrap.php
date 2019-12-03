@@ -34,9 +34,10 @@ spl_autoload_register(function ($className) {
     if (substr($className, 0, 7) === P7T_LIB_DIR) {
         $file = 'src/' . str_replace('\\', '/', $className) . '.php';
 
+        // Check if destination class file exists
         if (file_exists($file)) {
             require_once $file;
-        } else {
+        } else { // trow exception, if not
             throw new FileException(sprintf(FileException::NO_SUCH_FILE_OR_DIRECTORY, $className));
         }
     }

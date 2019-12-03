@@ -1,24 +1,31 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 /**
  * Abstract class for array like behaviour on objects, making them
- * - iteratable, countable,
+ * 
+ *  - iteratable, 
+ *  - countable
  *
- * @TODO (un) serialize
- *
- * @author Sven Schrodt
- * @since 2015-10-04
+ * @todo (un) serialize
+ * 
+ * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
  */
 namespace P7Tools\Base\Data;
 
-
-
 abstract class MultiArrayObject implements \Iterator, \Countable
 {
+
     /**
      *
      * @var array
      */
     protected $_data = array();
+
     /**
      * Resetting pointer to first array element
      */
