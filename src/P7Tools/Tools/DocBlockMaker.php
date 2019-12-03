@@ -70,6 +70,12 @@ class DocBlockMaker
         'var'
     ];
     
+    /**
+     * Array holding names of tags enfocing newline after tag 
+     * 
+     * @see https://github.com/svenschrodt/P7Tools/blob/master/SOURCE_CODE_CONVENTION.md
+     * @var array
+     */
     protected $_enforceNewlineAfterTag = ['fixme', 'todo'];
     /**
      * Tags used in current instance
@@ -122,6 +128,9 @@ class DocBlockMaker
                     }
                 } else {
                     $tmp[] = "@{$tag} {$tags[$tag]}";
+                    if(in_array($tag, $this->_enforceNewlineAfterTag)) {
+                        $tmp[] = '';
+                    }
                 }
             }
         }
