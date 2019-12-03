@@ -60,7 +60,7 @@ class StringNameTransformer
      */
     public static function getcamelCasedString(string $string, bool $upperFirst = false, string $boundary = Symbol::SINGLE_UNDERSCORE)
     {
-        $tmp = self::explodeAtBoundary($string);
+        $tmp = self::explodeAtBoundary($string, $boundary);
 
         for ($i = 0; $i < count($tmp); $i ++) {
             $tmp[$i] = ucfirst(strtolower($tmp[$i]));

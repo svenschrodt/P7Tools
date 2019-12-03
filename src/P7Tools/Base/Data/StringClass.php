@@ -9,6 +9,9 @@ declare(strict_types = 1);
  *
  * !Do not use in production until it is stable!
  *
+ * @todo Add methods, whenever another string* functionality is needed in project development 
+ * 
+ *
  * @link https://github.com/svenschrodt/P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
@@ -17,6 +20,8 @@ declare(strict_types = 1);
  * @version 0.1
  */
 namespace P7Tools\Base\Data;
+
+use P7Tools\Xml\Validator;
 
 class StringClass
 {
@@ -82,7 +87,89 @@ class StringClass
         $this->_content = ucfirst($this->_content);
         return $this;
     }
+    
+    /**
+     * Converting current content into camelCased string, separarted by substring boundary
+     * 
+     * @param bool $firstUpper
+     * @param string $boundary
+     * @return \P7Tools\Base\Data\StringClass
+     */
+    public function toCamelCase(bool $firstUpper = false, string $boundary = Symbol::SINGLE_UNDERSCORE)
+    {
+        $this->_content = StringNameTransformer::getcamelCasedString($this->_content, $firstUpper,$boundary); 
+        return $this;
+    }
+    
+    /**
+     * Adding string content
+     * 
+     * @param string $content
+     * @return \P7Tools\Base\Data\StringClass
+     */
+    public function add(string $content) : StringClass
+    {
+        $this->_content += $content;
+        return $this;
+   }
+   
+   
+   /**
+    * Settting string content -current content will be overwritten
+    *
+    * @param string $content
+    * @return \P7Tools\Base\Data\StringClass
+    */
+   public function set(string $content) : StringClass
+   {
+       $this->_content = $content;
+       return $this;
+   }
+   /**
+    * Deleting string content
+    *
+    * @param string $content
+    * @return \P7Tools\Base\Data\StringClass
+    */
+   public function delete() : StringClass
+   {
+       $this->_content = '';
+       return $this;
+   }
+    
+    /**
+     * Getting index (first character's position) of substring in current instance
+     * Returning false, if not found
+     * 
+     * @param string $string
+     * @return int | false
+     */
+    public function lastIndexOf(string $string)
+    {
+        return strrpos($this->_content, $string);
+    }
 
+    /**
+     * Splitting string into substrings separated by boundary string
+     * 
+     * @param string $separator
+     * @return array
+     */
+    public function split(string $boundary )
+    {
+        /**
+         * @todo adding optional parameter for deciding behaviour on $boundary not found
+         * - returning [], [$boundary], false, null ??
+         */ 
+        return explode($boundary , $this->_content); 
+    }
+    
+    public function validatesTo(ValidatorInterface $validator)
+    {
+        return  $validator->isValid((string) $this->_content);
+    }
+    
+    
     /**
      * Magical interceptor invoked, if instance is used in string context
      * - returning string representation of current content
