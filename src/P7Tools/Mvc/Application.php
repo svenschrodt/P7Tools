@@ -75,7 +75,7 @@ class Application
             'act' => $this->_request
         ];
         // 
-        echo \P7Tools\Dev\Helper::getInfo($object, false, true);
+        
         return $this;
     }
 

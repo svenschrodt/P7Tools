@@ -10,21 +10,28 @@
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  * @version 0.0.23
  */
-namespace P7Tools\Mvc;
+use P7Tools\Mvc\Application;
 
 class ApplicationTest extends \PHPUnit\Framework\TestCase
 {
 
     protected $application;
 
-    public function setUp() : void
+    public function setUp(): void
     {
+        $httpContext = new \P7Tools\Tools\Mock\Context\Http();
+        $this->application = new Application();
+        $httpContext->setGetVars([
+            'foo' => 'bar'
+        ]);
     }
-
 
     public function testDummyToSuppressWarning()
     {
+        $this->application->run();
+
+        // var_dump($this->application);
+
         $this->assertTrue(is_string('Baz'));
-        
     }
 }

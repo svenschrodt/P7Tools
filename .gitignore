@@ -17,7 +17,7 @@ composer.lock
 # exclude local functional testing resources
 index.php
 .htaccess
-
+post.html
 # exclude local configuration
 .local.conf.php 
 
