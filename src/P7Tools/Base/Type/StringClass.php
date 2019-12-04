@@ -19,9 +19,10 @@ declare(strict_types = 1);
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  * @version 0.1
  */
-namespace P7Tools\Base\Data;
+namespace P7Tools\Base\Type;
 
 use P7Tools\Tools\ValidatorInterface;
+use P7Tools\Base\Data\StringNameTransformer;
 
 class StringClass
 {
@@ -114,7 +115,7 @@ class StringClass
    }
    
    /**
-    * Settting string content -current content will be overwritten
+    * Setting string content - current content will be overwritten
     *
     * @param string $content
     * @return \P7Tools\Base\Data\StringClass
@@ -124,6 +125,17 @@ class StringClass
        $this->_content = $content;
        return $this;
    }
+   
+   /**
+    * Getting current string content of instance
+    *
+    * @return int
+    */
+   public function get() : string
+   {
+       return $this->_content;
+   }
+   
    /**
     * Deleting string content
     *

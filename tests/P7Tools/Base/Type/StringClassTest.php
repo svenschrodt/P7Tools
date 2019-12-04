@@ -10,7 +10,7 @@
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  * @version 0.0.23
  */
-namespace P7Tools\Base\Data;
+use P7Tools\Base\Type\StringClass;
 
 class StringClassTest extends \PHPUnit\Framework\TestCase
 {
@@ -26,7 +26,7 @@ class StringClassTest extends \PHPUnit\Framework\TestCase
     {
         $string = 'hello world here - we are !';
         $s= new StringClass($string);
-        echo $s . PHP_EOL;
+        $s . PHP_EOL;
         $s->toCamelCase(false, ' ');
         $this->assertSame('helloWorldHere-WeAre!', (string) $s);
         $s->toLowerCase();

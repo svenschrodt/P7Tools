@@ -27,10 +27,10 @@ class StringNameTransformerTest extends \PHPUnit\Framework\TestCase
     public function testNetstring()
     {
 
-        foreach($this->strings['underscored'] as $item) {
-            echo StringNameTransformer::getcamelCasedString($item).PHP_EOL;
-            echo StringNameTransformer::getcamelCasedString($item, true).PHP_EOL;
-        }
+//         foreach($this->strings['underscored'] as $item) {
+//             echo StringNameTransformer::getcamelCasedString($item).PHP_EOL;
+//             echo StringNameTransformer::getcamelCasedString($item, true).PHP_EOL;
+//         }
         $this->assertSame(1,1);
         //var_dump($decoded);
 
