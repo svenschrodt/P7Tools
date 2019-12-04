@@ -1,6 +1,8 @@
 <?php declare(strict_types = 1);
 /**
  * \P7Tools\Cache\CacheInterface
+ * @deprecated
+ *
  *
  * Defining common API for classes implementing caching mechanisms
  *

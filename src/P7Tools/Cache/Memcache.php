@@ -1,8 +1,10 @@
 <?php declare(strict_types=1);
 /**
  * Simplified basic usage of memcache daemon - a key-value storing cache holding data 
- * in RAM and communicating via TCP/IP socket
+ * in RAM and communicating via TCP/IP socket (default: tcp 11211)
  *
+ * 
+ * @todo REFACTOR!!
  * 
  * !Do not use in production until it is stable!
  *
@@ -18,7 +20,7 @@ namespace P7Tools\Cache;
 
 use P7Tools\Base\File\Config;
 
-class Memcache implements CacheInterface
+class Memcache
 {
 
     /**
@@ -49,6 +51,11 @@ class Memcache implements CacheInterface
      */
     protected static $_cache = null;
 
+    /**
+     * Constructor function 
+     * 
+     * @param boolean $config
+     */
     protected function __construct($config = false)
     {
         // @TODO validate
@@ -56,7 +63,7 @@ class Memcache implements CacheInterface
             $config = Config::getConfig('cache');
         }
         self::$_cache = new \Memcache();
-        self::$_cache->addServer($config['memcache_host'], $config['memcache_port']);
+        self::$_cache->addServer($config['memcache_host'], (int) $config['memcache_port']);
     }
 
     /**

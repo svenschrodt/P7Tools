@@ -1,5 +1,55 @@
 <?php
 
+// $ms = new \P7Tools\Tools\ReverseEngineering\MysqlStructure();
+// $object = $ms->getEntityStructure('ikr');
+
+// // $object = $ms->_getData('SELECT * FROM ikr');
+
+// echo Helper::getInfo($object);
+
+$header = array(
+    'From' => 'Mailrobot Schrodt Service<info@schrodt-service.net>',
+    'Reply-To' => 'info@schrodt-service.net',
+    'X-Mailer' => 'STools _ PHP/' . phpversion()
+);
+
+mail('sven@schrodt-service.net', 'Testmail am: '. date('Y-m-d H:i:s'), "Mailtext \n\n\n" . var_export($header, true));
+
+
+
+
+$string = "setDefaultEncodingStyle";
+echo '<pre>';
+// $t = P7Tools\Base\Data\StringNameTransformer::explodeUpperCaseSubstring($string);
+// var_dump($t);
+
+// var_dump(StringNameTransformer::explodeAtBoundary('db_admin_DE'));
+// var_dump(StringNameTransformer::explodeAtBoundary('db-admin-DE', '-'));
+
+// $str = 'db_admin_DE';
+// echo StringNameTransformer::getcamelCasedString($str);
+// echo PHP_EOL;
+// echo StringNameTransformer::getcamelCasedString($str, true);
+
+// $foo = new StringClass('db-admin-DE');
+// echo PHP_EOL;
+// echo $foo->toUpperCase()->toLowerCase();
+// // var_dump($foo->lastIndexOf('o'));
+// var_dump($foo->split('-'));
+// var_dump((string) $foo);
+// $foo= new StringClass('last_exit_Rosenheim!!!');
+// var_dump($foo->toCamelCase(true));
+
+// $pn = new P7Tools\Math\Number\PrimeNumberFactory();
+// var_dump($pn->sieveofEratosthenes(50));
+
+$memcache = new Memcache;
+$memcache->connect('127.0.0.1', 11211) or die ("Unable to connect to Memcached");
+
+$exampleValue = array('0','1','2','3');
+print_r($exampleValue);
+$memcache->set('exampleKey', $exampleValue, 0, 1800);
+
 /**
      * Returning file path for current OS
      *

@@ -16,23 +16,16 @@ use P7Tools\Dev\Mock;
 use P7Tools\Cache\Memcache;
 class mcTest extends \PHPUnit\Framework\TestCase
 {
-
+    /**
+     * Mock test
+     */
     public function testFoo()
     {
         $this->assertTrue(2*1==2);
     }
     
     
-    
-    public function NOtestIfPathWillGeneratedCorrectly()
-    {
-        /* OO API */
-        //echo getcwd() . PHP_EOL;
-        $memcache = Memcache::getInstance();
-        $a = serialize(Mock::getUserAccountTotal());
-        $memcache->set('fooBar', $a);
-
-    }
+ 
 }
 
 
