@@ -38,8 +38,4 @@
             </exclude>
         </whitelist>
     </filter>
-    <logging>
-        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-        <!-- log type="coverage-html" target="../coverage_reports/P7Tools" lowUpperBound="35" highLowerBound="70"/ -->
-    </logging>
 </phpunit>
