@@ -6,7 +6,9 @@ declare(strict_types = 1);
  * Factory to calculate prime numbers
  *
  *
- * @todo !Do not use in production until it is stable!
+ * @todo Rewrite !
+ * 
+ * !Do not use in production until it is stable!
  *      
  *      
  * @package P7Tools
@@ -60,35 +62,5 @@ class PrimeNumberFactory
         return $primes;
     }
 
-    public function sieveofEratosthenesTwo($limit)
-    {
-        $number; // Zu überprüfende $number
-        $counter = null; // Hilfsvariable (möglicher Teiler von $number)
-        $isPrime = true; // Hilfsvariable, ob die aktuelle $number eine $isPrime ist
 
-        // $number <= x ist der zu überprüfende $numberenraum
-        // Beginn bei 2, weil 1 per Definition keine $isPrime ist
-        for ($number = 2; $number <= $limit; $number ++) {
-            // solange wir für $number keinen Teiler finden, gehen wir davon aus,
-            // dass es eine $isPrime ist
-
-            // $counter ist ein möglicher Teiler. Mögliche nicht-triviale Teiler
-            // liegen im Bereich 2 bis $number/2 (abgerundet), wenn x aber Teiler
-            // von $number und größer als Wurzel($number), ist $number/x < Wurzel($number),
-            // sodass diese Grenze genügt.
-            for ($counter = 2; $counter < sqrt($number) + 1; $counter ++) {
-                if ($number % $counter == 0) {
-                    // $counter ist ein nichttrivialer Teiler von $number und damit
-                    // $number keine $isPrime. Weitere Teiler müssen nicht geprüft
-                    // werden und damit kann die Schleife abgebrochen werden.
-                    $isPrime = false;
-                    break;
-                    if($isPrime) {
-                        yield $number;
-                    }
-                }
-                
-            }
-        }
-    }
 }

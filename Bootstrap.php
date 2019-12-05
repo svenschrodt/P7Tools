@@ -20,9 +20,8 @@ define('P7T_LIB_DIR', 'P7Tools');
 /**
  *
  * @todo Writing PSR* compliant using auto loader with
- *       namespaces, sauce and hot
+ *       namespaces,registering namespaces by path resources & sauce and hot
  *      
- * @todo Writing class for registering namespaces by path resources
  */
 
 spl_autoload_register(function ($className) {
