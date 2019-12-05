@@ -6,3 +6,8 @@
       - ValidatorInterface  (objects)
       		- RegExValidator
       		- CurrencyValidator 
+      		
+      		
+   - For application:
+   		- FrontController testing:
+   			-doRequest(/Controller/Action/Foo!);-->

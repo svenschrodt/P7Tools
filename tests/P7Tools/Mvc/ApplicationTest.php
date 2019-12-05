@@ -15,6 +15,11 @@ use P7Tools\Mvc\Application;
 class ApplicationTest extends \PHPUnit\Framework\TestCase
 {
 
+    /**
+     * Application instance 
+     * 
+     * @var P7Tools\Mvc\Application
+     */
     protected $application;
 
     public function setUp(): void
