@@ -20,7 +20,7 @@ class Html5Spec
 
     /**
      * List of valid html elements
-     * 
+     *
      * @todo redefine structure for attributes
      * @var array
      */
@@ -91,35 +91,35 @@ class Html5Spec
         'br',
         'wbr'
     ];
-    
+
     /**
      * List of global attribtes
-     * 
+     *
      * @var array
      */
     protected $_globalAttributes = [
         'accesskey',
-        'autocapitalize', 
-        'autofocus', 
-        'contenteditable', 
-        'dir', 
-        'draggable', 
-        'enterkeyhint', 
-        'hidden', 
-        'inputmode', 
+        'autocapitalize',
+        'autofocus',
+        'contenteditable',
+        'dir',
+        'draggable',
+        'enterkeyhint',
+        'hidden',
+        'inputmode',
         'is',
-        'itemid', 
-        'itemprop', 
-        'itemref', 
-        'itemscope', 
-        'itemtype', 
-        'lang', 
-        'nonce', 
-        'spellcheck', 
-        'style', 
-        'tabindex', 
-        'title', 
-        'translate
-];
+        'itemid',
+        'itemprop',
+        'itemref',
+        'itemscope',
+        'itemtype',
+        'lang',
+        'nonce',
+        'spellcheck',
+        'style',
+        'tabindex',
+        'title',
+        'translate'
+    ];
 }
 

@@ -1,6 +1,10 @@
 <?php declare(strict_types=1);
 /**
+ * \P7Tools\Html\Element 
+ * 
  * Class helping creation of HTML elements from PHP data structures
+ * 
+ * @TODO --> rewrite as Element extends \P7Tools\Html\Node
  * 
  * @package P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
@@ -12,7 +16,7 @@
  */
 namespace P7Tools\Html;
 
-class Element
+class Element extends Node
 {
 
     /**
@@ -55,6 +59,8 @@ class Element
         $this->_type = strtolower($type);
         $this->addContent($content);
         $this->_attribs = $attribs;
+        //Setting type to element ! text node
+        $this->_setType();
     }
 
     /**

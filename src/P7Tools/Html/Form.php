@@ -28,7 +28,7 @@ class Form
      * @param string $selected
      * @return P7Tools\Html\Element;
      */
-    public static function select($id, array $attribs = array(), array $data, $selected = false)
+    public static function select(string $id, array $attribs = array(), array $data, $selected = false)
     {
         if (! isset($attribs['name'])) {
             $attribs['name'] = $id;
@@ -50,12 +50,13 @@ class Form
 
     /**
      * Creating radio element
+     * 
      * @param string $name
      * @param array $attribs
      * @param array $data
      * @return array
      */
-    public static function radio($name, array $attribs, array $data)
+    public static function radio(string $name, array $attribs, array $data)
     {
         $attribs = array_merge(array('type' => 'radio', 'name'=>$name), $attribs);
         //

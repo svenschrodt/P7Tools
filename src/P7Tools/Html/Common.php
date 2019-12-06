@@ -1,14 +1,16 @@
 <?php declare(strict_types=1);
 /**
- * Common methods for creating HTML elements from PHP data structures
+ * \P7Tools\HTml\Common 
  * 
+ * Common methods for creating HTML nodes from PHP data structures
  * 
- *
- *
- * @package  P7Tools
- * @author Sven Schrodt
- * @since 2016-02-02
- */
+ * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-11-25
+ * @link https://github.com/svenschrodt/P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net> */
 namespace P7Tools\Html;
 class  Common
 {

@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 /**
  * \P7Tools\Math\Number\PrimeNumberFactory
  *
@@ -26,14 +25,14 @@ class PrimeNumberFactory
 {
 
     /**
-     * Naive implementation with arrays ->
+     * Naive implementation with arrays 
      *
      * @todo implement returnning genaretors --> yield
      *      
      * @param int $limit
      * @return array
      */
-    public function sieveofEratosthenes($limit)
+    public function sieveofEratosthenes(int $limit) : array
     {
         /**
          * Initializing range of numbers [2 ..
