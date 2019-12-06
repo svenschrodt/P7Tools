@@ -36,7 +36,14 @@ class Card
 
     protected $_shortType;
 
-    public function __construct($type, $suit, $isTrump = false)
+    /**
+     * Cosntructor function
+     *  
+     * @param string $type
+     * @param string  $suit
+     * @param boolean $isTrump
+     */
+    public function __construct(string $type, string $suit, $isTrump = false)
     {
         $this->_isTrump = $isTrump;
         $type = ucfirst(strtolower($type));
@@ -49,7 +56,7 @@ class Card
     /**
      * Getting (relative) Position
      *
-     * @return Ambigous <>
+     * @return int 
      */
     public function getPositionOrder()
     {
@@ -60,21 +67,41 @@ class Card
         return $order[0];
     }
 
+    /**
+     * Gettig name of current type
+     * 
+     * @return string 
+     */
     public function getName()
     {
         return $this->_type;
     }
 
+    /**
+     * Getting name of suit 
+     * 
+     * @return string
+     */
     public function getFullName()
     {
         return $this->_type . ' of ' . $this->_suit;
     }
 
+    /**
+     * Getting short description of type
+     * 
+     * @return string
+     */
     public function getShortName()
     {
         return $this->_shortType . Deck::getSymbol($this->_suit);
     }
 
+    /**
+     * Gettig suit 
+     * 
+     * @return string
+     */
     public function getSuit()
     {
         return $this->_suit;
@@ -83,7 +110,7 @@ class Card
     /**
      * Getting info, if current instance is a trump (not Donald, nor president)
      * 
-     * @return boolean|string
+     * @return boolean 
      */
     public function isTrump() : bool
     {
@@ -93,22 +120,31 @@ class Card
     /**
      * Setting current instance as trump (not Donald, nor president)
      *
+     * @param $b
      * @return Card
      */
-    public function setTrump()
+    public function setTrump(bool $b=false)
     {
         $this->_isTrump = true;
         return $this;
     }
 
     /**
+     * Reset flag, if car is trump
      * 
+     * return Card
      */
     public function unsetTrump()
     {
         $this->_isTrump = false;
+        return $this;
     }
 
+    /**
+     * Magical iterceptor returning string representatio of curent instance
+     * 
+     * @return string
+     */
     public function __toString()
     {
         return sprintf('%5s', $this->getShortName());

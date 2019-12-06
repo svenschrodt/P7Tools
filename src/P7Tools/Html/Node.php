@@ -44,7 +44,7 @@ abstract class Node
      *
      * @var bool
      */
-    protected function setType(bool $isTexNode=false) 
+    protected function _setType(bool $isTexNode=false) 
     {
         $this->_isTextNode = $isTexNode;
         $this->_isHtmlNode = ($this->_isTextNode) ? false : true;
