@@ -11,3 +11,7 @@
    - For application:
    		- FrontController testing:
    			-doRequest(/Controller/Action/Foo!);-->
+   			
+   - Unit testing / CI 
+   		- Continuing with code coverage after DEV pahse 0.1
+   		

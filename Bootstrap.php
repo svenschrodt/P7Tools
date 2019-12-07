@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 /**
  * Bootstrapping for namespace /P7Tools/ used by
  *  
