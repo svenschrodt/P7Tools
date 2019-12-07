@@ -13,5 +13,6 @@
    			-doRequest(/Controller/Action/Foo!);-->
    			
    - Unit testing / CI 
-   		- Continuing with code coverage after DEV pahse 0.1
-   		
+   		- Continuing with code coverage after DEV phase 0.1
+   		  and understanding, why builds with cc failed X-/
+   		  

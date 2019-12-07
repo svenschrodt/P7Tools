@@ -7,6 +7,7 @@
  * @todo Implementing:
  *       - REGEX-based Routing and
  *       - static routes
+ *       - decoupling from global context --> @see \P7Tools\Mvc\ApplicationFactory
  *      
  *       !Do not use in production until it is stable!
  *      

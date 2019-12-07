@@ -5,6 +5,8 @@
  * Simple TCP/IP | unix socket (endpoint for communication) client for demonstration
  * and learning purposes - in production environments use more performant (compiled)
  * tools like netcat, telnet etc.
+ * 
+ * @todo Porting to a Zephir based project for performance tuning
  *  
  *
  * !Do not use in production until it is stable!
