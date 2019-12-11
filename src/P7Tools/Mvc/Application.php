@@ -24,7 +24,7 @@ class Application
 {
 
     /**
-     * Name of (no-exisiting) applicatin for testing purposes only
+     * Name of (no-existing) applicatin for testing purposes only
      *
      * @var string
      */

@@ -27,6 +27,12 @@ class FooTest extends TestCase
         $this->expectException('P7Tools\Base\File\Exception');
         $bar = new \P7Tools\Foo();
         unset($bar);        
+        $var1 = 'Hello World';
+        $var2 = '';
+        
+        $var2 =& $var1;
+        
+        debug_zval_dump($var1);
     }
 }
     
