@@ -35,7 +35,13 @@ class Client
      */
     protected $socket;
 
-    // the following members may be set from outside the class (public members)
+    /**
+     * the following members may be set from outside the class (public members)
+     * 
+     * @deprecated
+     * @todo Implemnt public getters | setters for validation purpose instaed of public members
+     * 
+     */
 
     /***
      * IP address or hostname | fqdn
@@ -93,6 +99,11 @@ class Client
      */
     public $protocol;
 
+    /**
+     * Errors occuring while communication
+     * 
+     * @var array
+     */
     protected $errorMessage = array();
 
     /**
@@ -123,17 +134,19 @@ class Client
 
     /**
      * Connecting to server socket
-     *
+     * 
+     * @TODO -> error messages as constants from Net\Exception -> to be implemented
+     * 
      * @throws \ErrorException
      */
     public function connect()
     {
-        //TODO implement better error handling with different error messages!!
+        //@TODO implement better error handling with different error messages!!
         if (!$this->socketDataIsComplete()) {
             throw new \ErrorException('Error found in input data:'
                 . implode("\n", $this->errorMessage));
         }
-        //TODO validating params!!!
+        //  @TODO validating params!!!
         // Creating socket and returning resource
         $this->socket = socket_create($this->domain, $this->type, $this->protocol);
 
@@ -160,7 +173,7 @@ class Client
      */
     public function socketDataIsComplete() : bool
     {
-        //TODO check if all necessary data for socket construction is available
+        //@TODO check if all necessary data for socket construction is available
         $success = true;
         if (!$this->address) {
             $success = false;

@@ -6,6 +6,9 @@ declare(strict_types = 1);
  *
  * Common methods for creating HTML nodes from PHP data structures
  *
+ * @todo let Html attributes become instances
+ *
+ *
  * @package P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @version 0.1

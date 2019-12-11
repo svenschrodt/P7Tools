@@ -17,6 +17,7 @@
  */
 use PHPUnit\Framework\TestCase;
 use P7Tools\Html\Element;
+use P7Tools\Html\Text;
 
 class ElementTest extends TestCase
 {
@@ -29,11 +30,14 @@ class ElementTest extends TestCase
         $ele->addClass('Baz');
         $ele->addClass('BAr');
         $ele->setId('UniqName');
-        $ele->addContent('Test');
-        echo $ele;
-        echo PHP_EOL;
-        $this->assertTrue(3 - 2 == 1);
-        
+        $txt = new Text('Test');
+        $ele->addContent($txt);
+//         echo $ele;
+//         echo PHP_EOL;
+        $this->assertInstanceOf('P7Tools\Html\Element', $ele);
+        $this->assertInstanceOf('P7Tools\Html\Text', $txt);
+        $this->assertInstanceOf('P7Tools\Html\Node', $ele);
+        $this->assertInstanceOf('P7Tools\Html\Node', $txt);
     }
 }
     

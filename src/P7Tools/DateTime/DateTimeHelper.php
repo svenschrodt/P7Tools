@@ -1,20 +1,23 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
-/*************
- * Helper für Datums- und Zeitfunktionen
+/** Helper functions for Date / Time
  *
- * @package  Common_Helper
+ * @package Common_Helper
  * @author Sven Schrodt
- *
- *
- **/
+ *        
+ *        
+ */
 namespace P7Tools\Base\DateTime;
+
 class DateTimeHelper
 {
 
-    const WRONG_ERROR_DATETIME_TYPE = 100;
-
-    protected static $dbAdapter = null;
+    /**
+     * Error code for unknown date/time error type
+     * 
+     * @var integer
+     */
+    const WRONG_ERROR_DATETIME_TYPE = 666;
 
     /**
      * Calculating number of days in given month
@@ -23,27 +26,20 @@ class DateTimeHelper
      * @param int $month
      * @return int
      */
-    public static function getDaysInMonth($year, $month)
+    public static function getDaysInMonth(int $year, int $month)
     {
-        if(!is_int($year)) {
-            throw new \InvalidArgumentException('$year muss vom Typ int sein');
-        }
-        if(!is_int($month)) {
-            throw new \InvalidArgumentException('$year muss vom Typ int sein');
-        }
-        return (int) date('t', mktime(0, 0, 0, $month, 1, $year));
+        return date('t', mktime(0, 0, 0, $month, 1, $year));
     }
 
     /**
-     * Formatig DateTime string (YYY-mm-dd HH:MM:SS) to
+     * Formating DateTime string (YYY-mm-dd HH:MM:SS) to
      * german format
      *
      * @param string $dateTime
      * @param string $dateOnly
      * @return string
      */
-    public static function formatIsoDateTimeToGermanDate($dateTime,
-            $dateOnly = false)
+    public static function formatIsoDateTimeToGermanDate($dateTime, $dateOnly = false)
     {
         list ($date, $time) = explode(' ', $dateTime);
         list ($year, $month, $day) = explode('-', $date);
@@ -55,29 +51,26 @@ class DateTimeHelper
     }
 
     /**
-     * Gibt aktuelles Datum mit Zeit zurück
+     * Returning current date / time as ISO formatted string
      *
      * @param string $format
      * @param string $type
+     * @return string | \DateTime
      */
-    public static function getNow($format = 'Y-m-d H:i:s', $type = 'plain')
+    public static function getNow(string $format = 'Y-m-d H:i:s', string $type = 'plain')
     {
         switch (strtolower($type)) {
             case 'plain':
                 return date($format);
                 break;
 
-            case 'zend_date':
-                return new \Zend_Date();
-                break;
-
             case 'datetime':
-                    return new \DateTime();
-                    break;
+                return new \DateTime();
+                break;
+   
             default:
 
-                throw new \InvalidArgumentException('Wrong date type: ' . $type,
-                        self::WRONG_ERROR_DATETIME_TYPE);
+                throw new \InvalidArgumentException('Wrong date type: ' . $type, self::WRONG_ERROR_DATETIME_TYPE);
         }
     }
 }

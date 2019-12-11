@@ -37,9 +37,9 @@ class TemplateView implements ViewInterface
      * Assigning named attribute to current view
      * 
      * @see \P7Tools\Mvc\ViewInterface::assign()
-     * @ return TemplateView
+     * @return TemplateView
      */
-    public function assign($name, $value) : TemplateView
+    public function assign(string $name, $value) : TemplateView
     {
         $this->_content[$name] = $value;
         return $this;
