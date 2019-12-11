@@ -26,7 +26,6 @@ class ArrayFilterTest extends \PHPUnit\Framework\TestCase
 //        echo ArrayHelper::getArrayAsString($data[8], true);
         $between = array('from'=>0,'to'=> 100);
         $filtered = ArrayFilter::filterArrayOfArrays('total', $between, $data, ArrayFilter::FILTER_MODE_BETWEEN);
-//         echo ArrayHelper::getMultiArrayAsString($filtered, true);
     }
 
 

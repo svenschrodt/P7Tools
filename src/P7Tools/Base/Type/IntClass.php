@@ -67,7 +67,9 @@ class IntClass extends AbstractType
     }
     
     /**
-     * Returning generator for numbers from current int value up to $to, stepped by $step
+     * Returning generator for numbers from current int value 
+     *      up to $to, 
+     * stepped by $step
      *
      * @param int $to
      * @param int $step
@@ -82,7 +84,9 @@ class IntClass extends AbstractType
     }
     
     /**
-     * Returning generator for numbers from current int value down to $to, stepped by $step
+     * Returning generator for numbers from current int value 
+     *   down to $to, 
+     * stepped by $step
      *
      * @param int $to
      * @param int $step
@@ -97,8 +101,8 @@ class IntClass extends AbstractType
     }
     
     /**
-     * Generic validator function uses external validator classes implementing
-     * \P7Tools\Tools\ValidatorInterface
+     * Generic validator function - uses external validator classes 
+     * implementing \P7Tools\Tools\ValidatorInterface
      *
      * @param ValidatorInterface $validator
      * @return bool

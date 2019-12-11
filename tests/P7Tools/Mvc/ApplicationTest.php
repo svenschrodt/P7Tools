@@ -35,7 +35,7 @@ class ApplicationTest extends \PHPUnit\Framework\TestCase
     {
         $this->application->run();
 
-        // var_dump($this->application);
+//         var_dump($this->application);
 
         $this->assertTrue(is_string('Baz'));
     }

@@ -32,12 +32,24 @@ class ElementTest extends TestCase
         $ele->setId('UniqName');
         $txt = new Text('Test');
         $ele->addContent($txt);
-//         echo $ele;
-//         echo PHP_EOL;
         $this->assertInstanceOf('P7Tools\Html\Element', $ele);
         $this->assertInstanceOf('P7Tools\Html\Text', $txt);
         $this->assertInstanceOf('P7Tools\Html\Node', $ele);
         $this->assertInstanceOf('P7Tools\Html\Node', $txt);
+        
+//         echo PHP_EOL;
+//         echo $ele;
+//         echo PHP_EOL;
+        
+        $txt = ' I am blinky';
+        $foo = new Element('span');
+        $foo->addContent($txt)->addClass('blink');
+        $ele->addContent($foo);
+//         $this->assertSame((string) $foo, $txt);
+//         echo PHP_EOL;
+//         echo var_dump($foo);
+//         echo PHP_EOL;
+        
     }
 }
     

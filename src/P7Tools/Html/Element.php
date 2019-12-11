@@ -61,11 +61,19 @@ class Element extends Node
      * @param array $attribs
      * @param string $content
      */
-    public function __construct(string $type, array $attribs = array(), Element $content = null)
+    public function __construct(string $type, array $attribs = array(), $content = null)
     {
         // @ todo validating element type according to HTML spec!
         $this->_type = strtolower($type);
-        $this->addContent($content);
+        
+        if (is_string($content)) {
+            $this->addContent(new Text($content));
+            die('F=00000000000000000000000000=!');
+        }
+        
+        if (!is_null($content)) {
+            $this->addContent($content);
+        }
         $this->_attributes = array_merge($this->_attributes,$attribs);
         // Setting type to element ! text node
         $this->_setType();

@@ -2,7 +2,6 @@
 /**
  * P7Tools\Base\Data\ContainerTest
  *
- *
  * @link https://github.com/svenschrodt/P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
@@ -16,7 +15,8 @@ class IntClassTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
-     * Testing, if 
+     * Testing, basic functionality
+     * 
      */
     public function testBasix()
     {
@@ -29,9 +29,6 @@ class IntClassTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf('Generator', $dta);
         $this->assertTrue(is_int($i->get()));
         $this->assertTrue(is_int($f->get()));
-        //
-        
-        
        
     }
 }

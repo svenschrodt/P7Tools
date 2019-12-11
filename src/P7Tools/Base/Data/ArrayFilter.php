@@ -5,6 +5,8 @@
  * Filter functions for arrays - useful in non-db contexts
  *
  *  !Do not use in production until it is stable!
+ *  
+ *  @todo Add more comments!
  *      
  * @package P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
