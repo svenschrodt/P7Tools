@@ -1,11 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types = 1);
 /**
- * \P7Tools\Html\Element 
- * 
+ * \P7Tools\Html\Element
+ *
  * Class helping creation of HTML elements from PHP data structures
- * 
- * @TODO --> rewrite as Element extends \P7Tools\Html\Node
- * 
+ *
+ * @todo --> rewrite as Element extends \P7Tools\Html\Node
+ *      
  * @package P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @version 0.1
@@ -36,12 +38,17 @@ class Element extends Node
     /**
      * Optional element attributes
      *
+     * Id and class are predefined element keys
+     *
      * @var array
      */
-    protected $_attribs = array();
+    protected $_attributes = array(
+        'id' => null,
+        'class' => []
+    );
 
     /**
-     * Flag, if element is empty 
+     * Flag, if element is empty
      *
      * @var bool
      */
@@ -54,29 +61,72 @@ class Element extends Node
      * @param array $attribs
      * @param string $content
      */
-    public function __construct( string $type, array $attribs = array(), Element $content = null)
+    public function __construct(string $type, array $attribs = array(), Element $content = null)
     {
+        // @ todo validating element type according to HTML spec!
         $this->_type = strtolower($type);
         $this->addContent($content);
-        $this->_attribs = $attribs;
-        //Setting type to element ! text node
+        $this->_attributes = array_merge($this->_attributes,$attribs);
+        // Setting type to element ! text node
         $this->_setType();
     }
 
     /**
-     * Adding content(s) to element
+     * Setting id of current instance
      *
+     * @param string $id
+     * @return \P7Tools\Html\Element
+     */
+    public function setId(string $id): Element
+    {
+        $this->_attributes['id'] = $id;
+        return $this;
+    }
+
+    /**
+     * Unsetting id of current instance
+     *
+     * @return \P7Tools\Html\Element
+     */
+    public function unsetId()
+    {
+        $this->_attributes['id'] = null;
+        return $this;
+    }
+
+    /**
+     * Addig class to current instance
+     *
+     * @param string $name
+     * @return \P7Tools\Html\Element
+     */
+    public function addClass(string $name)
+    {
+        // only add non existing class
+//         var_dump($this->_attributes);die;
+        
+        if (! in_array($name, $this->_attributes['class'])) {
+            array_push($this->_attributes['class'], $name);
+        }
+        return $this;
+    }
+
+    /**
+     * Adding content(s) to element
+     * 
+     * @todo adding strict type for content being instanceOf P7Tools\Html\Node
+     * 
      * @param mixed $content
      * @return P7Tools\Html\Element;
      */
     public function addContent($content)
     {
-        if(is_array($content)) {
+        if (is_array($content)) {
             $this->_content = array_merge($this->_content, $content);
         } else {
             $this->_content[] = $content;
         }
-        if(count($this->_content)) {
+        if (count($this->_content)) {
             $this->_isEmpty = false;
         }
         return $this;
@@ -103,7 +153,7 @@ class Element extends Node
      */
     public function setAttributes(array $attribs)
     {
-        foreach($attribs as $key => $value) {
+        foreach ($attribs as $key => $value) {
             $this->setAttribute($key, $value);
         }
         return $this;
@@ -117,10 +167,10 @@ class Element extends Node
     public function __toString()
     {
         $text = "<{$this->_type}";
-        if(count($this->_attribs)) {
-            $text .= ' ' . Common::getAttributeList($this->_attribs);
+        if (count($this->_attributes)) {
+            $text .= ' ' . Common::getAttributeList($this->_attributes);
         }
-        if($this->_isEmpty) {
+        if ($this->_isEmpty) {
             return $text . ' />';
         } else {
             $text .= '>' . implode('', $this->_content);
