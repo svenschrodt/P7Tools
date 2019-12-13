@@ -42,7 +42,7 @@ class Insert extends Query
         return $this;
     }
 
-    public function __toString()
+    public function __toString() : string
     {
         $this->_validate();
         $parts = array();

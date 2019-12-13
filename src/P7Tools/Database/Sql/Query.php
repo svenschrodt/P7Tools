@@ -221,7 +221,7 @@ class Query
 
     /**
      * Addig OR part to WHERE clasue part of query string 
-     * @param unknown $conditions
+     * @param string $conditions
      * @return \P7Tools\Database\Sql\Query
      */
     public function addOr(string $conditions) : Query
