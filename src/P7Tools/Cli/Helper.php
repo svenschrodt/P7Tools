@@ -1,6 +1,9 @@
-<?php declare(strict_types = 1);
+<?php
+declare(strict_types = 1);
 /**
  * P7Tools\CliHelper
+ *
+ * Function for shell usage
  *
  * !Do not use in production until it is stable!
  *
@@ -18,78 +21,100 @@ class Helper
 {
 
     /**
-     * Returning (debugging) information about given object
+     * Colour for foreground
      *
-     * @param mixed $object
-     * @param bool $trace
-     * @param bool $html
-     * @return mixed
+     * @var string
      */
-    public static function getInfo($object, $trace = false, $inHtml = false)
+    private $fgColour;
+
+    /**
+     * Colour for background
+     *
+     * @var string
+     */
+    private $gbColour;
+
+    /**
+     * Constructor function
+     */
+    public function __construct()
     {
-        // TODO -> check if executed in web context or via CLI
-        $info = '';
-        if ($inHtml) {
-            $info .= "<pre>\n";
-        }
-        $info .= var_export($object, 1);
-        if ($inHtml) {
-            $info .= "</pre>\n";
-        }
-        if ($trace) {
-            if ($inHtml) {
-                $info .= '<pre>';
-            }
-            print_r(debug_backtrace(1));
-            if ($inHtml) {
-                $info .= '</pre>';
-            }
-        }
-        return $info;
+        // Setting up shell colours
+        $this->fgColour = [
+            'black' => '0;30',
+            'dark_gray' => '1;30',
+            'blue' => '0;34',
+            'light_blue' => '1;34',
+            'green' => '0;32',
+            'light_green' => '1;32',
+            'cyan' => '0;36',
+            'light_cyan' => '1;36',
+            'red' => '0;31',
+            'light_red' => '1;31',
+            'purple' => '0;35',
+            'light_purple' => '1;35',
+            'brown' => '0;33',
+            'yellow' => '1;33',
+            'light_gray' => '0;37',
+            'white' => '1;37'
+        ];
+
+        $this->gbColour = [
+            'black' => '40',
+            'red' => '41',
+            'green' => '42',
+            'yellow' => '43',
+            'blue' => '44',
+            'magenta' => '45',
+            'cyan' => '46',
+            'light_gray' => '47'
+        ];
     }
 
     /**
-     * Printing (debugging) information to STDOUT
+     * Returning a coloured string
      *
-     * @param
-     *            $object
-     * @param bool $stop
+     * @param string $string
+     * @param string $fg
+     * @param string $bg
+     * @return string
      */
-    public static function printInfo($object, $stop = false, $inHtml = false)
+    public function getColouredString(string $string, string $fg = null, string $bg = null) : string
     {
-        print self::getInfo($object, false, $inHtml);
-        if ($stop) {
-            $traceInfo = debug_backtrace(1);
-            // var_dump($traceInfo);
-            die('Stopped in ' . $traceInfo[0]['file'] . ' line ' . $traceInfo[0]['line']);
+        $cString = "";
+
+        // Checking, if the given fg colour is found
+        if (isset($this->fgColour[$fg])) {
+            $cString .= "\033[" . $this->fgColour[$fg] . "m";
         }
+        // Check if given background colour found
+        if (isset($this->gbColour[$bg])) {
+            $cString .= "\033[" . $this->gbColour[$bg] . "m";
+        }
+
+        // Add string and end colouring
+        $cString .= $string . "\033[0m";
+
+        return $cString;
     }
 
     /**
-     * Stopping current script's execution and optional output of backtrace
-     * debugging information
+     * Returning foreground colour names
      *
-     * @param bool $trace
+     * @return array
      */
-    public static function stop($trace = false)
+    public function getFgColours() : array
     {
-        if ($trace) {
-            $traceInfo = debug_backtrace(1);
-            // echo '<pre>';
-            // print_r($traceInfo);
-            // echo '</pre>';
-        }
-        // return $info;
-        die('Stopped in ' . $traceInfo[0]['file'] . ' line ' . $traceInfo[0]['line']);
+        return array_keys($this->fgColour);
     }
 
-    public static function startMeasure()
+    /**
+     * Returning background colour names
+     *
+     * @return array
+     */
+    public function getBgColours() : array
     {
-        return microtime(true);
+        return array_keys($this->gbColour);
     }
-
-    public static function stopMeasure($startTime)
-    {
-        return (microtime(true) - $startTime);
-    }
-} 
+}

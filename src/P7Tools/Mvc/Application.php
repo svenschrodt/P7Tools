@@ -128,7 +128,7 @@ class Application
     /**
      * Checking, if application directories and sub directories exist
      *
-     * @todo Implementing sanity checks for application
+     * @todo Implementing sanity checks for application and remove fake code
      * @return bool
      */
     protected function _checkApplicationSanity(): bool
