@@ -23,9 +23,13 @@ use P7Tools\Dev\CodeCreator;
 class Update extends Query
 {
 
-
-
-    public function __construct(array $columns = array(" * "), $entity = null)
+    /**
+     * Constructor function 
+     * 
+     * @param array $columns
+     * @param string $entity
+     */
+    public function __construct(array $columns = array(" * "), string $entity)
     {
         if (! is_null($entity)) {
             $this->_entity = $entity;
@@ -55,14 +59,11 @@ class Update extends Query
         $parts[] = $this->_queryType;
         $parts[] = $this->_entity;
         $parts[] = Query::SET;
-        $parts[] = (count($this->_columns) == 1 && isset($this->_columns[0]) &&
-             $this->_columns[0] == ' * ') ? $this->_columns[0] : CodeCreator::getAssignmentList(
-                $this->_columns, "'", true, ', ');
+        $parts[] = (count($this->_columns) == 1 && isset($this->_columns[0]) && $this->_columns[0] == ' * ') ? $this->_columns[0] : CodeCreator::getAssignmentList($this->_columns, "'", true, ', ');
 
         if (count($this->_where)) {
             $parts[] = $this->_where;
         }
-
 
         return implode($this->_lineFinisher . ' ', $parts);
     }

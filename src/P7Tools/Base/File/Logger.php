@@ -29,34 +29,71 @@ namespace\Base\File;
 class Logger
 {
 
-    // Log Level according to Request for Comments: 3164 "The BSD syslog
-    // Protocol"
+    /**
+     * Log Level according to Request for Comments: 3164 "The BSD syslog Protocol"
+     */
 
-    // Emergency: system is unusable
+    /**
+     * Emergency: system is unusable
+     * 
+     * @var int
+     */
     const EMERG = 0;
 
-    // Alert: action must be taken immediately
+    /**
+     * Alert: action must be taken immediately
+     * 
+     * @var int
+     */
     const ALERT = 1;
 
-    // Critical: critical conditions
+    /**
+     * Critical: critical conditions
+     * 
+     * @var int
+     */
     const CRIT = 2;
 
-    // Error: error conditions
+    /**
+     * Error: error conditions
+     * 
+     * @var int
+     */
     const ERR = 3;
 
-    // Warning: warning conditions
+    /**
+     * Warning: warning conditions
+     * 
+     * @var int
+     */
     const WARN = 4;
 
-    // Notice: normal but significant condition
+    /**
+     * Notice: normal but significant condition
+     * 
+     * @var integer
+     */
     const NOTICE = 5;
 
-    // Informational: informational messages
+    /**
+     * Informational: informational messages
+     * 
+     * @var integer
+     */
     const INFO = 6;
 
-    // Debug: debug-level messages
+    /**
+     * Debug: debug-level messages
+     * 
+     * @var integer
+     */
     const DEBUG = 7;
 
-    // Severity log levels
+    /**
+     * Severity log levels
+     * 
+     * @var array
+     */
     protected static $_status = array(
         'EMERG',
         'ALERT',
@@ -68,7 +105,11 @@ class Logger
         'DEBUG'
     );
 
-    // Base Directory for logs
+    /**
+     * Default base directory for logs
+     * 
+     * @var string
+     */
     protected static $_logDir = '/var/log/php/';
 
     /**
@@ -77,7 +118,7 @@ class Logger
      * @param string $message
      * @param int $level
      */
-    protected static function _log($message, $level = self::ERR)
+    protected static function _log(string $message, int $level = self::ERR)
     {
         $o = self::_getNamePartsNow($level);
         error_log($o->linePrefix . $message . PHP_EOL, 3, $o->fileName);
@@ -89,8 +130,9 @@ class Logger
      * @param int $level
      * @return stdClass
      */
-    protected static function _getNamePartsNow($level = self::ERR)
+    protected static function _getNamePartsNow(int $level = self::ERR) : \stdClass
     {
+        // @todo implement function to configure log line structure
         $now = date('Y-m-d H:i:s');
         $remote = (isset($_SERVER['REMOTE_ADDR'])) ? "[{$_SERVER['REMOTE_ADDR']}]" : "[N/A]";
        
@@ -112,7 +154,7 @@ class Logger
      * @param string $method
      * @param array $params
      */
-    public function __call($method, $params)
+    public function __call(string $method, array $params)
     {
         $key = array_search(strtoupper($method), self::$_status);
         if ($key) {

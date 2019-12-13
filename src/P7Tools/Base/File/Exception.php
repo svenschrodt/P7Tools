@@ -2,6 +2,7 @@
 /**
  * P7Tools\Base\File\Exception
  *
+ * Exception class for file access purpose
  *
  * !Do not use in production until it is stable!
  *
@@ -17,9 +18,22 @@ namespace P7Tools\Base\File;
 class Exception extends \ErrorException
 {
     
+    /**
+     * File or directory not found error message as [s|f]printf string
+     * 
+     * @var string
+     */
     const NO_SUCH_FILE_OR_DIRECTORY= '%s: No such file or directory';
     
     /**
+     * Permission denied error message as [s|f]printf string
+     *
+     * @var string
+     */
+    const PERMISSION_DENIED = '%s: Permission denied';
+    
+    /**
+     * Contructor function 
      * 
      * @param string $message
      */

@@ -29,12 +29,8 @@ class Insert extends Query
      * @param array $columns
      * @param null | P7Tools\Database\Sql\Query $entity
      */
-    public function __construct(array $columns, Query $entity = null)
+    public function __construct(array $columns, string $entity )
     {
-        if (! is_null($entity)) {
-            $this->_entity = $entity;
-        }
-
         $this->_columns = $columns;
         $this->_queryType = Query::INSERT;
         parent::__construct($columns, $entity);

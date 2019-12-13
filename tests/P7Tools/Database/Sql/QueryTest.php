@@ -34,7 +34,7 @@ class QueryTest extends \PHPUnit\Framework\TestCase
 
     public function testQuery()
     {
-        $q = new Query();
+        $q = new Query([], 'FOO');
         $this->assertTrue(is_object($q));
 //         $select  = $q->update(array(
 //             'user_name'=>'Pauly',
@@ -48,12 +48,12 @@ class QueryTest extends \PHPUnit\Framework\TestCase
 //             'id' =>99,
 //         ))->addOr("name='Peter'");
 //         ;
-        $q = new Insert(array(
+        $q = new Insert([
             'user_name'=>'Pauly',
             'email' =>'no-reply@example.net',
             'hash'=>md5(uniqid('Bla')),
              'dob'=>'23.05.1949'
-        ));
+        ], 'Freddie');
         $q->into('user_account_fr');
 // echo $q;
 //         $select  = $q->select(array(
