@@ -24,21 +24,67 @@ class Application
 {
 
     /**
-     * Name of (no-existing) applicatin for testing purposes only
+     * Name of (non-existing) application for testing purposes only
      *
      * @var string
      */
     const MOCK_APP = 'dry-run';
 
     /**
-     *
+     * Name of current application 
+     * 
      * @var string
      */
     protected $_appName = '';
 
-    // read only properties (from outside of the class) -> see __get()
-    protected $_router, $_request, $_response, $_controller, $_action, $_params;
+    /**
+     * Instance of application router
+     * 
+     * @var \P7Tools\Mvc\Router $_router
+     */
+    protected $_router;
+    
+    /**
+     * Instance of current http request
+     * 
+     * @var \P7Tools\Http\Request 
+     */
+    protected $_request;
+    
+    /**
+     * Instance of current http response
+     * 
+     * @var \P7Tools\Http\Response
+     */
+    protected $_response;
+    
+    /**
+     * Current controller for response
+     * 
+     * @var \P7Tools\Mvc\FrontController
+     */
+    protected $_controller;
+    
+    /**
+     * Name of current action for response
+     * 
+     * @var string 
+     */
+    protected $_action;
+    
+    /**
+     * Mixed arrayy with parameters
+     * 
+     * @var array
+     */
+    protected $_params;
 
+    /**
+     * Costructor function 
+     *  - init Routing and dispatching
+     *  
+     * @param string $appName
+     */
     public function __construct(string $appName = self::MOCK_APP)
     {
         $this->_appName = $appName;
@@ -46,7 +92,7 @@ class Application
         $this->_router = Router::getInstance();
         $this->_controller = $this->_router->getController();
         $this->_action = $this->_router->getAction();
-
+        
         if ($this->_appName != self::MOCK_APP) {
             $this->_checkApplicationSanity();
         }
@@ -71,10 +117,10 @@ class Application
             'act' => $this->_action,
             'rtr' => $this->_router,
             'app' => $this->_appName,
-            'ctr' => $this->_response,
-            'act' => $this->_request
+            'rsp' => $this->_response,
+            'env' => $_ENV
         ];
-        // 
+//         var_dump($this); 
         
         return $this;
     }
@@ -87,7 +133,9 @@ class Application
      */
     protected function _checkApplicationSanity(): bool
     {
-        if (1 == 2) {
+        
+        return true;
+        if (true) {
              throw new ApplicationException(sprintf(ApplicationException::MISSING_APPLICATION_PATH, $this->_appName));
         }
         return true;
