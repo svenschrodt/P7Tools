@@ -2,7 +2,7 @@
 /**
  * P7Tools\Database\Sql\Insert
  * 
- * Representing INSERT statements with option WHERE - clause etc.
+ * Representing INSERT statements with optional WHERE - clause etc.
  *
  * convention by default:
  *
@@ -36,12 +36,25 @@ class Insert extends Query
         parent::__construct($columns, $entity);
     }
 
-    public function into($entity)
+    
+    /**
+     * Adding entity name to current query
+     * 
+     * @param string $entity
+     * @return \P7Tools\Database\Sql\Insert
+     */
+    public function into(string $entity) : \P7Tools\Database\Sql\Insert
     {
         $this->_entity = $entity;
         return $this;
     }
 
+    /**
+     * Current INSERT instance used in string context
+     * 
+     * {@inheritDoc}
+     * @see \P7Tools\Database\Sql\Query::__toString()
+     */
     public function __toString() : string
     {
         $this->_validate();

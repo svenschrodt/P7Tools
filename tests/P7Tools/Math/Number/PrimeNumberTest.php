@@ -15,7 +15,7 @@ namespace P7Tools;
 
 use P7Tools\Math\Number\PrimeNumberFactory;
 
-class MetaTest extends \PHPUnit\Framework\TestCase
+class PrimeNumberTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testSieve()

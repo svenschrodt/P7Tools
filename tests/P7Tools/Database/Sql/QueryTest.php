@@ -11,71 +11,72 @@
  * @copyright Sven Schrodt<sven@schrodt-service.net>
  * @version 0.0.23
  */
-namespace P7Tools\Database\Sql;
+use P7Tools\Database\Sql\Insert;
 
 use P7Tools\Base\Data\ArrayHelper;
 use P7Tools\Dev\CodeCreator;
 use P7Tools\Base\Data\Symbol;
 use P7Tools\Dev\Expression;
+
 class QueryTest extends \PHPUnit\Framework\TestCase
 {
 
     protected $testContainer;
 
-    public function setUp() : void
+    public function setUp(): void
     {}
 
-    public function NotestExprssion()
+    public function NOtestExprssion()
     {
         $ex = new Expression();
         $ex->let('Foo')->and('BAR');
-//         echo $ex;
+        echo $ex;
     }
 
     public function testQuery()
     {
-        $q = new Query([], 'FOO');
+        $q = new Insert([], 'FOO');
         $this->assertTrue(is_object($q));
-//         $select  = $q->update(array(
-//             'user_name'=>'Pauly',
-//             'email' =>'no-reply@example.net',
-//             'hash'=>md5(uniqid('Bla'))
-//         ),'user_account_fr')
-//         ->where(array(
-//             "last_name <> 'Paulsen",
-//             "entry_date BETWEEN '2016-01-12' AND '2016-01-12'",
-//             "name='Mary'",
-//             'id' =>99,
-//         ))->addOr("name='Peter'");
-//         ;
+        // $select = $q->update(array(
+        // 'user_name'=>'Pauly',
+        // 'email' =>'no-reply@example.net',
+        // 'hash'=>md5(uniqid('Bla'))
+        // ),'user_account_fr')
+        // ->where(array(
+        // "last_name <> 'Paulsen",
+        // "entry_date BETWEEN '2016-01-12' AND '2016-01-12'",
+        // "name='Mary'",
+        // 'id' =>99,
+        // ))->addOr("name='Peter'");
+        // ;
         $q = new Insert([
-            'user_name'=>'Pauly',
-            'email' =>'no-reply@example.net',
-            'hash'=>md5(uniqid('Bla')),
-             'dob'=>'23.05.1949'
+            'user_name' => 'Pauly',
+            'email' => 'no-reply@example.net',
+            'hash' => md5(uniqid('Bla')),
+            'dob' => '23.05.1949'
         ], 'Freddie');
         $q->into('user_account_fr');
-// echo $q;
-//         $select  = $q->select(array(
-//             'id',
-//             'user_name',
-//             'email',
-//             'hash'
-//         ))->from('user_account_fr')
-//         ->where(array(
-//             "last_name <> 'Paulsen",
-//             "entry_date BETWEEN '2016-01-12' AND '2016-01-12'",
-//             "name='Mary'"
-//         ))->addOr("name='Peter'")
-//         ->orderBy(array('entry_date', 'user_name'))->groupBy('group_id');
-//         $select->setConcatType(Query::OP_OR)->limit(23);
-//         echo PHP_EOL;
-//         echo $q;
-//         echo PHP_EOL;
+        // echo $q;
+        // $select = $q->select(array(
+        // 'id',
+        // 'user_name',
+        // 'email',
+        // 'hash'
+        // ))->from('user_account_fr')
+        // ->where(array(
+        // "last_name <> 'Paulsen",
+        // "entry_date BETWEEN '2016-01-12' AND '2016-01-12'",
+        // "name='Mary'"
+        // ))->addOr("name='Peter'")
+        // ->orderBy(array('entry_date', 'user_name'))->groupBy('group_id');
+        // $select->setConcatType(Query::OP_OR)->limit(23);
+        // echo PHP_EOL;
+        // echo $q;
+        // echo PHP_EOL;
 
-//         $w = new Where();
-//         $q->where('a.b >Y 99');
-//         $q->where("username LIKE 'Schm%' ");
+        // $w = new Where();
+        // $q->where('a.b >Y 99');
+        // $q->where("username LIKE 'Schm%' ");
 
         // $value = 1.001;
         // $key = 'fNormalizedFactor'
@@ -92,9 +93,13 @@ class QueryTest extends \PHPUnit\Framework\TestCase
         // var_dump(get_magic_quotes_gpc());
     }
 
-    public function NOtestIfQueriessAreSetCorrectly()
+    public function testIfQueriessAreSetCorrectly()
     {
-        $me = new Query();
+        $me = new Insert([
+            ' * '
+        ], 'Foo');
+        echo $me; // die(PHP_EOL.'jshdshk'.PHP_EOL);
+                  // var_dump($me);
         $a = 12;
         $b = 2.2345;
         $c = 'Lorem Ipsum';
@@ -105,7 +110,8 @@ class QueryTest extends \PHPUnit\Framework\TestCase
             $c => gettype($c),
             $d => gettype($d)
         );
-//         echo ArrayHelper::getArrayAsString($data, true);
+        $this->assertTrue(gettype($d) === 'boolean');
+        echo ArrayHelper::getArrayAsString($data, true);
     }
 }
 

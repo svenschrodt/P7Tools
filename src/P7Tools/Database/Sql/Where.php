@@ -1,12 +1,22 @@
 <?php
 /**
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
+ * P7Tools\Database\Sql\Where
+ * 
+ * Representing WHERE clause 
+ *
+ * convention by default:
+ *
+ * - return null on unset data
+ * - no ttl, but possible to be updated
+ *
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-12-11
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
- * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.0.23
- */
+ * @copyright Sven Schrodt<sven@schrodt-service.net>*/
+
 namespace P7Tools\Database\Sql;
 
 use P7Tools\Dev\CodeCreator;
@@ -15,15 +25,27 @@ use P7Tools\Database\Sql\Query;
 class Where implements \Iterator, \Countable // @TODO extends FOO extends Query
 {
 
-    protected $_conditions = array();
+    /**
+     * Array with conditions to be concatenated in WHERE clause
+     */
+    protected $_conditions = [];
 
+    /**
+     * Type of conditions to be concatenated 
+     * 
+     * @var string
+     */
     protected $_concatConditionsWith = Query::OP_AND;
 
+    /**
+     * Costructor function 
+     */
     public function __construct()
     {
 
     }
 
+    
     public function add($conditions, $optional = false)
     {
         if (is_array($conditions)) {

@@ -1,21 +1,22 @@
 <?php
 /**
- * \Cache\Filecache
+ * P7Tools\Database\Sql\Update
+ * 
+ * Representing UPDATE statements with optional WHERE - clause etc.
  *
  * convention by default:
  *
  * - return null on unset data
  * - no ttl, but possible to be updated
  *
- * !Do not use in production until it is stable!
- *
- * @link https://github.com/svenschrodt/P7Tools
- * @author Sven Schrodt<sven@schrodt-service.net>
  * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 2019-12-11
+ * @link https://github.com/svenschrodt/P7Tools
  * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
- * @copyright Sven Schrodt<sven@schrodt-service.net>
- * @version 0.0.23
- */
+ * @copyright Sven Schrodt<sven@schrodt-service.net>*/
+
 namespace P7Tools\Database\Sql;
 
 use P7Tools\Dev\CodeCreator;
@@ -40,6 +41,7 @@ class Update extends Query
         parent::__construct($columns, $entity);
     }
 
+    
     public function setConcatType($type)
     {
         $this->_where->setConcatType($type);
