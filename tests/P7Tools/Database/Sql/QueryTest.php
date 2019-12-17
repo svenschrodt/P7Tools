@@ -98,7 +98,7 @@ class QueryTest extends \PHPUnit\Framework\TestCase
         $me = new Insert([
             ' * '
         ], 'Foo');
-        echo $me; // die(PHP_EOL.'jshdshk'.PHP_EOL);
+//         echo $me; // die(PHP_EOL.'jshdshk'.PHP_EOL);
                   // var_dump($me);
         $a = 12;
         $b = 2.2345;
