@@ -15,28 +15,39 @@ namespace P7Tools\Base\Data;
 class StringNameTransformerTest extends \PHPUnit\Framework\TestCase
 {
 
-    protected $strings = [];
-
-    public function setUp() : void
+    public function setUp(): void
     {
-        $this->strings['underscored'] = ['db_admin_DE', '__alt_System_default'];
-        $this->strings['camelized'] = ['dbAdmiFoo', 'MYSQLDbAdmin'];
+        $this->strings['snake_named'] = [
+            'db_admin_DE',
+            '__alt_System_default'
+        ];
+        $this->strings['camelized'] = [
+            'dbAdminFoo',
+            'MYSQLDbAdmin'
+        ];
     }
 
-
-    public function testNetstring()
+    public function testUnderscored()
     {
+        foreach ($this->strings['snake_named'] as $item) {
+            $foo = StringNameTransformer::getcamelCasedString($item);
 
-//         foreach($this->strings['underscored'] as $item) {
-//             echo StringNameTransformer::getcamelCasedString($item).PHP_EOL;
-//             echo StringNameTransformer::getcamelCasedString($item, true).PHP_EOL;
-//         }
-        $this->assertSame(1,1);
-        //var_dump($decoded);
-
+            $this->assertTrue(strstr($foo, '_') === false);
+            $this->assertTrue(strstr($foo, ' ') === false);
+        }
     }
-
+    
+    public function testCamelized()
+    {
+        foreach ($this->strings['camelized'] as $item) {
+            $foo = StringNameTransformer::getsnakeCasedString($item);
+            echo $foo . PHP_EOL;
+            $this->assertTrue(strstr($foo, '_') !== false);
+            $this->assertTrue(strstr($foo, '_') !== false);
+        }
+        
     }
+}
 
 
  

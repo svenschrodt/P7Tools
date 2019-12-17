@@ -9,8 +9,13 @@ declare(strict_types = 1);
  * @FIXME !!!
  *
  * @see http://cr.yp.to/proto/netstrings.txt
- *
- * @version 0.0.24
+ * @package P7Tools
+ * @author Sven Schrodt<sven@schrodt-service.net>
+ * @version 0.1
+ * @since 04.12.2019
+ * @link https://github.com/svenschrodt/P7Tools
+ * @license https://github.com/svenschrodt/P7Tools/blob/master/LICENSE.md
+ * @copyright Sven Schrodt<sven@schrodt-service.net>
  */
 namespace P7Tools\Base\Data;
 

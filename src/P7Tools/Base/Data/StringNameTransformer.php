@@ -72,6 +72,13 @@ class StringNameTransformer
         return ($upperFirst) ? $glued : lcfirst($glued);
     }
     
+    public static function getsnakeCasedString(string $string, bool $lowercase= true)
+    {
+        $tmp = implode('_', self::explodeUpperCaseSubstring($string));
+        return $tmp;
+//         $ret = ($lowercase === true) : strtolower($tmp) ? $tmp;
+    }
+    
     /**
      * Encodig string for usage as URI (part) 
      * 

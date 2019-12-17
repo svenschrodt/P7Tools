@@ -1,21 +1,26 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 /**
  * \P7Tools\Business\Account
  *
- * (Later Abstract) foundation class for classes representing accounts 
- *   - basic credit / debit functionality
+ * (Later Abstract) foundation class for classes representing accounts
+ * - basic credit / debit functionality
  *
  * @todo dispatching debit/credit action by account type
  *      
  *      
  * @todo !Do not use in production until it is stable!
  *      
- *       Kind of account Debit Credit
- *       Asset Increase Decrease
- *       Liability Decrease Increase
- *       Income/Revenue Decrease Increase
- *       Expense/Cost/Dividend Increase Decrease
- *       Equity/Capital Decrease Increase
+ * @see https://en.wikipedia.org/wiki/Debits_and_credits
+ * Hint for myself:    
+ * 
+ *       [Kind of account]------------- [Debit] --------------- [Credit]
+ *       Asset ------------------------ Increase -------------- Decrease
+ *       Liability -------------------- Decrease -------------- Increase
+ *       Income/Revenue --------------- Decrease -------------- Increase
+ *       Expense/Cost/Dividend -------- Increase -------------- Decrease
+ *       Equity/Capital --------------- Decrease -------------- Increase
  *      
  * @package P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
@@ -76,8 +81,8 @@ class Account
     ];
 
     /**
-     * Constructor function 
-     * 
+     * Constructor function
+     *
      * @param number $no
      * @param string $type
      */
@@ -88,9 +93,8 @@ class Account
         $this->_type = $type;
     }
 
-    
     /**
-     *  Do debit action
+     * Do debit action
      *
      * @param float $value
      * @return \P7Tools\Business\Account
@@ -102,7 +106,7 @@ class Account
     }
 
     /**
-     *  Do credit action
+     * Do credit action
      *
      * @param float $value
      * @return \P7Tools\Business\Account
@@ -112,7 +116,7 @@ class Account
         $this->_dispatch('credit', $value);
         return $this;
     }
-    
+
     /**
      * Decreasing balance
      *
@@ -124,8 +128,8 @@ class Account
     }
 
     /**
-     * Decreasing balance 
-     * 
+     * Decreasing balance
+     *
      * @param float $value
      */
     protected function _decreaseBalance(float $value)
@@ -135,7 +139,6 @@ class Account
 
     /**
      * Dispatching current action (debit | credit) by current account type
-     * 
      */
     protected function _dispatch(string $action = 'debit', $value)
     {
@@ -176,7 +179,7 @@ class Account
 
     /**
      * Handling credit action by type
-     * 
+     *
      * @param float $value
      */
     protected function _handleCredit(float $value)
@@ -194,8 +197,9 @@ class Account
     }
 
     /**
-     * Returning current balance (summary of credit ./. debit actions)
-     * 
+     * Returning current balance (summary of credit ./.
+     * debit actions)
+     *
      * @return number
      */
     public function getBalance(): float
@@ -205,7 +209,7 @@ class Account
 
     /**
      * Getting type of current account instance
-     * 
+     *
      * @return string
      */
     public function getType(): string
@@ -215,9 +219,9 @@ class Account
 
     /**
      * Getting name of current account instance
-     * 
+     *
      * Tobe overwritten
-     * 
+     *
      * @param int $no
      * @return string
      */
