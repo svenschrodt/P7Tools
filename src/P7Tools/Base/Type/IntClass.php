@@ -1,10 +1,14 @@
-<?php declare(strict_types = 1);
+<?php
+declare(strict_types = 1);
 /**
- * P7Tools\Base\Type\Bool
+ * P7Tools\Base\Type\Int
  *
- * Class representing boolean object with methods to manipulate content and calculate
- * 
- *  !Do not use in production until it is stable!
+ * Class representing int as object with methods to manipulate content and calculate
+ * - ranges
+ * - loops with steps
+ * - tbd.
+ *
+ * !Do not use in production until it is stable!
  *
  * @todo Add methods, whenever another string* functionality is needed in project development
  *      
@@ -20,22 +24,22 @@ namespace P7Tools\Base\Type;
 
 use P7Tools\Tools\ValidatorInterface;
 
-class BoolClass extends AbstractType
+class IntClass extends AbstractType
 {
 
     /**
-     * Boolean value of current instance or null
+     * Int number value of current instance
      *
-     * @var null | bool
+     * @var int
      */
-    protected $_value = null;
+    protected $_value;
 
     /**
      * Generic constructor function
      *
      * @param int $value
      */
-    public function __construct(bool $value )
+    public function __construct(int $value = 0)
     {
         $this->_value = $value;
     }
@@ -45,30 +49,57 @@ class BoolClass extends AbstractType
      * 
      * @return int
      */
-    public function get() : bool
+    public function get() : int
     {
         return $this->_value;
-    }
-    
-    
-    protected function _operateWith(string $operator, bool $operand)
-    {
-        //@todo implement $operator [|&~!]
     }
     
     /**
      * Set current int value for instance
      * 
      * @param int $value
-     * @return \P7Tools\Base\Type\BoolClass
+     * @return \P7Tools\Base\Type\IntClass
      */
-    public function set(bool $value) : BoolClass
+    public function set(int $value) : IntClass
     {
         $this->_value = $value;
         return $this;
     }
     
-  
+    /**
+     * Returning generator for numbers from current int value 
+     *      up to $to, 
+     * stepped by $step
+     *
+     * @param int $to
+     * @param int $step
+     * @return \Generator
+     */
+    public function upTo(int $to, int $step = 1): \Generator
+    {
+        //@todo deciding how to handle IntClass::$_number < $to
+        for ($i = $this->_value; $i <= $to; $i += $step) {
+            yield $i;
+        }
+    }
+    
+    /**
+     * Returning generator for numbers from current int value 
+     *   down to $to, 
+     * stepped by $step
+     *
+     * @param int $to
+     * @param int $step
+     * @return \Generator
+     */
+    public function downTo(int $to, int $step = 1): \Generator
+    {
+        //@todo deciding how to handle IntClass::$_number < $to
+        for ($i = $this->_value; $i <= $to; $i -= $step) {
+            yield $i;
+        }
+    }
+    
     /**
      * Generic validator function - uses external validator classes 
      * implementing \P7Tools\Tools\ValidatorInterface
