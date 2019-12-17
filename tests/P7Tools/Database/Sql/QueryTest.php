@@ -98,20 +98,9 @@ class QueryTest extends \PHPUnit\Framework\TestCase
         $me = new Insert([
             ' * '
         ], 'Foo');
-//         echo $me; // die(PHP_EOL.'jshdshk'.PHP_EOL);
-                  // var_dump($me);
-        $a = 12;
-        $b = 2.2345;
-        $c = 'Lorem Ipsum';
-        $d = (5 > 9);
-        $data = array(
-            $a => gettype($a),
-            $b => gettype($b),
-            $c => gettype($c),
-            $d => gettype($d)
-        );
-        $this->assertTrue(gettype($d) === 'boolean');
-        echo ArrayHelper::getArrayAsString($data, true);
+        
+        $this->assertInstanceOf('P7Tools\Database\Sql\Insert', $me);
+//         echo ArrayHelper::getArrayAsString($data, true);
     }
 }
 
