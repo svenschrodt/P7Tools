@@ -38,8 +38,6 @@ class BasicTest extends \PHPUnit\Framework\TestCase
             12,
             'Lorem Ipsum'
         ];
-
-        // print_r($data);
         $foo = new \stdClass();
         $this->assertTrue(gettype($a) === 'integer');
         $this->assertTrue(gettype($b) === 'double');
