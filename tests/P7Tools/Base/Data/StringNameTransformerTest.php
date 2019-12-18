@@ -41,7 +41,7 @@ class StringNameTransformerTest extends \PHPUnit\Framework\TestCase
     {
         foreach ($this->strings['camelized'] as $item) {
             $foo = StringNameTransformer::getsnakeCasedString($item);
-            echo $foo . PHP_EOL;
+//             echo $foo . PHP_EOL;
             $this->assertTrue(strstr($foo, '_') !== false);
             $this->assertTrue(strstr($foo, '_') !== false);
         }

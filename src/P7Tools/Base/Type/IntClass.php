@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 /**
  * P7Tools\Base\Type\Int
  *
@@ -10,7 +9,7 @@ declare(strict_types = 1);
  *
  * !Do not use in production until it is stable!
  *
- * @todo Add methods, whenever another string* functionality is needed in project development
+ * @todo Add methods, whenever another int* functionality is needed in project development
  *      
  *      
  * @link https://github.com/svenschrodt/P7Tools
@@ -77,7 +76,7 @@ class IntClass extends AbstractType
      */
     public function upTo(int $to, int $step = 1): \Generator
     {
-        //@todo deciding how to handle IntClass::$_number < $to
+        //@todo deciding how to handle IntClass::$_number > $to
         for ($i = $this->_value; $i <= $to; $i += $step) {
             yield $i;
         }
@@ -109,7 +108,7 @@ class IntClass extends AbstractType
      */
     public function validatesTo(ValidatorInterface $validator) : bool
     {
-        //  we want to validate the _string representation_ of currrent instance
+        //  we want to validate the _integer representation_ of currrent instance
         return  $validator->isValid($this->get());
     }
 } 

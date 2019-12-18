@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types = 1);
 /**
  * \P7Tools\Business\Account
@@ -8,20 +7,21 @@ declare(strict_types = 1);
  * - basic credit / debit functionality
  *
  * @todo dispatching debit/credit action by account type
+ * @todo implement self::$_value as instance of \P7Tools\Business\AbstractCurrency       
  *      
+ * !Do not use in production until it is stable!
  *      
- * @todo !Do not use in production until it is stable!
- *      
- * @see https://en.wikipedia.org/wiki/Debits_and_credits
- * Hint for myself:    
+ * @see https://en.wikipedia.org/wiki/Debits_and_credits 
  * 
- *       [Kind of account]------------- [Debit] --------------- [Credit]
- *       Asset ------------------------ Increase -------------- Decrease
- *       Liability -------------------- Decrease -------------- Increase
- *       Income/Revenue --------------- Decrease -------------- Increase
- *       Expense/Cost/Dividend -------- Increase -------------- Decrease
- *       Equity/Capital --------------- Decrease -------------- Increase
- *      
+ * Hint for myself:
+ *     
+ *      [Kind of account]------------- [Debit] --------------- [Credit]
+ *      Asset ------------------------ Increase -------------- Decrease
+ *      Liability -------------------- Decrease -------------- Increase
+ *      Income/Revenue --------------- Decrease -------------- Increase
+ *      Expense/Cost/Dividend -------- Increase -------------- Decrease
+ *      Equity/Capital --------------- Decrease -------------- Increase
+ *     
  * @package P7Tools
  * @author Sven Schrodt<sven@schrodt-service.net>
  * @version 0.1
@@ -57,7 +57,7 @@ class Account
     protected $_balance = 0.0;
 
     /**
-     * Type of account
+     * Type of account - default set, for testing
      *
      * @var string
      */
@@ -139,8 +139,12 @@ class Account
 
     /**
      * Dispatching current action (debit | credit) by current account type
+     *
+     * @param string $action
+     * @param float $value
+     * @throws \ErrorException
      */
-    protected function _dispatch(string $action = 'debit', $value)
+    protected function _dispatch(string $action = 'debit', float $value)
     {
         switch (strtolower($action)) {
 
@@ -197,8 +201,8 @@ class Account
     }
 
     /**
-     * Returning current balance (summary of credit ./.
-     * debit actions)
+     * Returning current balance 
+     *   (summary of credit ./. debit actions)
      *
      * @return number
      */
