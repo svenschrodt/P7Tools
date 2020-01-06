@@ -14,7 +14,7 @@
  * @version 0.0.24
  */
 
- amespace P7Tools\Base\Data;
+namespace P7Tools\Base\Data;
 
 class ArraySorter
 {

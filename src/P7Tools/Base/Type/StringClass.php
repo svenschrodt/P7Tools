@@ -22,6 +22,7 @@ namespace P7Tools\Base\Type;
 
 use P7Tools\Tools\ValidatorInterface;
 use P7Tools\Base\Data\StringNameTransformer;
+use P7Tools\Base\Data\Symbol;
 
 class StringClass
 {
@@ -47,7 +48,7 @@ class StringClass
     /**
      * Converting current content into lower case
      *
-     * @return \P7Tools\Base\Data\StringClass
+     * @return \P7Tools\Base\Type\StringClass
      */
     public function toLowerCase(): StringClass
     {
@@ -58,7 +59,7 @@ class StringClass
     /**
      * Converting current content into upper case
      *
-     * @return \P7Tools\Base\Data\StringClass
+     * @return \P7Tools\Base\Type\StringClass
      */
     public function toUpperCase(): StringClass
     {
@@ -69,7 +70,7 @@ class StringClass
     /**
      * Converting current content's first character into into lower case
      *
-     * @return \P7Tools\Base\Data\StringClass
+     * @return \P7Tools\Base\Type\StringClass
      */
     public function toLowerFirst(): StringClass
     {
@@ -80,7 +81,7 @@ class StringClass
     /**
      * Converting current content's first character into upper case
      *
-     * @return \P7Tools\Base\Data\StringClass
+     * @return \P7Tools\Base\Type\StringClass
      */
     public function toUpperFirst(): StringClass
     {
@@ -93,7 +94,7 @@ class StringClass
      * 
      * @param bool $firstUpper
      * @param string $boundary
-     * @return \P7Tools\Base\Data\StringClass
+     * @return \P7Tools\Base\Type\StringClass
      */
     public function toCamelCase(bool $firstUpper = false, string $boundary = Symbol::SINGLE_UNDERSCORE)
     {
@@ -105,7 +106,7 @@ class StringClass
      * Adding string content
      * 
      * @param string $content
-     * @return \P7Tools\Base\Data\StringClass
+     * @return \P7Tools\Base\Type\StringClass
      */
     public function add(string $content) : StringClass
     {
@@ -117,7 +118,7 @@ class StringClass
     * Setting string content - current content will be overwritten
     *
     * @param string $content
-    * @return \P7Tools\Base\Data\StringClass
+    * @return \P7Tools\Base\Type\StringClass
     */
    public function set(string $content) : StringClass
    {
@@ -139,7 +140,7 @@ class StringClass
     * Deleting string content
     *
     * @param string $content
-    * @return \P7Tools\Base\Data\StringClass
+    * @return \P7Tools\Base\Type\StringClass
     */
    public function delete() : StringClass
    {
@@ -183,7 +184,8 @@ class StringClass
      */
     public function validatesTo(ValidatorInterface $validator) : bool
     {
-        // Explicit type cast here: we want to validate the _string representation_ of currrent instance 
+        // Explicit type cast here: we want to validate the _string representation_ 
+        // of current instance 
         return  $validator->isValid((string) $this->_content);
     }
     

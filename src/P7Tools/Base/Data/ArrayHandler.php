@@ -22,6 +22,8 @@
  */
 namespace P7Tools\Base\Data;
 
+use P7Tools\Base\Data\ArraySorter;
+
 class ArrayHandler extends MultiArrayObject
 {
 

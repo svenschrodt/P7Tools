@@ -121,7 +121,13 @@ class Application
             'env' => $_ENV
         ];
 //         var_dump($this); 
-        
+// // get fully qualified name of application's controllers
+//         $controller = APP_NS . '\\Controllers\\' . $this->controller . 'Controller';
+//         $action = $this->action;
+//         // echo \STools\Dev\Helper::getInfo(array($controller, $action));
+//         $controllerInstance = new $controller($this);
+//         $controllerInstance->$action();
+//         return $controllerInstance;
         return $this;
     }
 
@@ -133,7 +139,6 @@ class Application
      */
     protected function _checkApplicationSanity(): bool
     {
-        
         return true;
         if (true) {
              throw new ApplicationException(sprintf(ApplicationException::MISSING_APPLICATION_PATH, $this->_appName));

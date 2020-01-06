@@ -19,6 +19,7 @@
 namespace P7Tools\Base\Data;
 
 use P7Tools\Base\Data\ArrayValidator;
+use P7Tools\Base\Data\ArraySorter;
 use P7Tools\Base\Data\ScalarHelper;
 
 class ArrayFilter
@@ -233,7 +234,7 @@ class ArrayFilter
      * @param string $value
      * @param array $data
      * @param int $mode
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      * @return array
      */
     public static function filterArrayOfArrays($key, $value, array $data, $mode = self::FILTER_MODE_CONTAINS)

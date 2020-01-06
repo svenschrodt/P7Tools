@@ -32,11 +32,11 @@ class ArrayValidator
     /**
      *
      * @param array $data
-     * @param unknown $key
+     * @param string $key
      * @param string $type
      * @throws \InvalidArgumentException
      */
-    public static function ensureKeyExistsDefaultValue(array &$data, $key, $type = 'int')
+    public static function ensureKeyExistsDefaultValue(array &$data,string $key, string $type = 'int')
     {
         if (! is_string($key)) {
             throw new \InvalidArgumentException('$key MUST be string');
