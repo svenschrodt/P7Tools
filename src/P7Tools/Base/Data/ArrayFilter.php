@@ -273,7 +273,8 @@ class ArrayFilter
             );
         }
 
-        $filtered = array();
+        // Init array for results
+        $filtered = [];
 
         // iterate array and filter each child array if condition matches
         foreach ($data as $item) {

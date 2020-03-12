@@ -1,6 +1,6 @@
 <?php
 /**
- *class suppoirt gernation of logical expressions like:
+ * class supportING generation of logical expressions like:
  *
  * ((a>b) OR (b==c)) AND (d IN ())
  *
@@ -14,43 +14,74 @@
  * @version 0.0.23
  */
 namespace P7Tools\Dev;
+
 use P7Tools\Base\Data\Symbol;
+
 class Expression
 {
+
     protected $_operandLeft;
+
     protected $_operandRight;
+
     protected $_operator;
 
-    protected $operators=array('AND', 'OR', 'NOT', 'LT', 'GT', 'EQ');
+    protected $operators = array(
+        'AND',
+        'OR',
+        'NOT',
+        'LT',
+        'GT',
+        'EQ'
+    );
 
+    /**
+     * Constructor function 
+     * 
+     */
     public function __construct()
-    {
+    {}
 
-    }
-
+    /**
+     * 
+     * @param string $operand
+     * @return \P7Tools\Dev\Expression
+     */
     public function let($operand)
     {
         $this->_operandLeft = $operand;
         return $this;
     }
 
-    public function __call($method, $args)
+    /**
+     * Magical interceptor function 
+     * 
+     * @param string $method
+     * @param array $args
+     * @throws \ErrorException
+     */
+    public function __call(string $method, array $args)
     {
         $operator = strtoupper($method);
-        if(!in_array($operator, $this->operators)) {
+        if (! in_array($operator, $this->operators)) {
             throw new \ErrorException('Unknoen operator ' . $method);
         } else {
-            $this->_operandRight=$args[0];
+            $this->_operandRight = $args[0];
             $this->_operator = $operator;
         }
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function __toString()
     {
-        //@TODO $this->_validateExpression()
-        return implode(' ', array($this->_operandLeft, $this->_operator, $this->_operandRight));
+        // @TODO $this->_validateExpression()
+        return implode(' ', array(
+            $this->_operandLeft,
+            $this->_operator,
+            $this->_operandRight
+        ));
     }
-
-
-
 }

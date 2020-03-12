@@ -27,7 +27,7 @@ class Http
 
     /**
      * Cosntructor fucntion - setting fake values for super globals 
-     *  - to be used for simulationg 'http context'
+     *  - to be used for simulating 'http context'
      *  
      */
     public function __construct()
@@ -42,7 +42,7 @@ class Http
         $_SERVER = [
             'REDIRECT_STATUS' => '200',
             'HTTP_HOST' => 'foo.examl.org',
-            'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0',
+            'HTTP_USER_AGENT' => 'P7ToolsUserAgent/0.11 (GEOS; CBM; Commodore 128; basic v:7.0) Foo/20200101 Bar/0.023',
             'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'HTTP_ACCEPT_LANGUAGE' => 'de,en-US;q=0.7,en;q=0.3',
             'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',

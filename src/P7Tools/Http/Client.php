@@ -163,7 +163,7 @@ class Client extends \P7Tools\Net\Client
     /**
      * Magical interceptor function used as generic request for http methods
      *
-     * @param sting  $method
+     * @param string $method
      * @param string $data
      * @return Client
      * @throws \ErrorException

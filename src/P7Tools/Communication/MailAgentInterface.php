@@ -29,65 +29,65 @@ interface MailAgentInterface
      * Adding list of recipients 'to'
      *
      * @param array $recipients
-     * @return PhpMail
+     * @return MailAgentInterface
      */
-    public function addTos(array $recipients): PhpMail;
+    public function addTos(array $recipients): MailAgentInterface;
 
     /**
      * Adding recipient 'cc'
      *
      * @param string $recipient
-     * @return PhpMail
+     * @return MailAgentInterface
      */
-    public function addCc(string $recipient): PhpMail;
+    public function addCc(string $recipient): MailAgentInterface;
 
     /**
      * Adding list of recipients 'cc'
      *
      * @param array $recipients
-     * @return PhpMail
+     * @return MailAgentInterface
      */
-    public function addCcs(array $recipients): PhpMail;
+    public function addCcs(array $recipients): MailAgentInterface;
 
     /**
      * Adding recipient 'bcc'
      *
      * @param string $recipient
-     * @return PhpMail
+     * @return MailAgentInterface
      */
-    public function addBcc(string $recipient): PhpMail;
+    public function addBcc(string $recipient): MailAgentInterface;
 
     /**
      * Adding list of recipients 'bcc'
      *
      * @param array $recipients
-     * @return PhpMail
+     * @return MailAgentInterface
      */
-    public function addBccs(array $recipients): PhpMail;
+    public function addBccs(array $recipients): MailAgentInterface;
 
     /**
      * Setting subject text for current mail
      *
      * @param string $subject
-     * @return PhpMail
+     * @return MailAgentInterface
      */
-    public function setSubject(string $subject): PhpMail;
+    public function setSubject(string $subject): MailAgentInterface;
 
     /**
      * Setting text for current mail
      *
      * @param string $subject
-     * @return PhpMail
+     * @return MailAgentInterface
      */
-    public function setText(string $subject): PhpMail;
+    public function setText(string $subject): MailAgentInterface;
 
     /**
      * Adding path to filre resources to be attached to current mail
      *
      * @param string $pathToResource
-     * @return PhpMail
+     * @return MailAgentInterface
      */
-    public function addAttachment(string $pathToResource): PhpMail;
+    public function addAttachment(string $pathToResource): MailAgentInterface;
 
     /**
      * Sending current mail

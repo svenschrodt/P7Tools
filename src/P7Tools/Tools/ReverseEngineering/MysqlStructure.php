@@ -4,7 +4,7 @@ declare(strict_types = 1);
  * \P7Tools\Tools\ReverseEngineering\MysqlStructure
  *
  * Class helping to reverse engineer and get meta information about
- * MySQL (MariaDB, Percona ..) data base structures
+ * MySQL ( || drop-in replacement RDBM like MariaDB, Percona ..) data base structures
  *
  *
  * !Do not use in production until it is stable!

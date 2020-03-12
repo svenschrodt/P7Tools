@@ -30,7 +30,7 @@ class Config
      * Getting config information 
      * 
      * @param boolean $sectionOnly
-     * @return NULL|unknown
+     * @return NULL|array
      */
     public static function getConfig($sectionOnly = false)
     {
