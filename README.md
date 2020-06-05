@@ -197,42 +197,8 @@ P7Tools
 │       │   └── Structure
 │       └── Xml
 │           └── ValidatorTest.php
-├── tmp
-│   ├── CodeGRube.php.depr
-│   ├── extract_code_coverage_from_phpunit.xl.txt
-│   ├── global_attr.txt
-│   ├── html5_elements.txt
-│   ├── tags.txt
-│   └── t.php
-├── TODO.md
-└── vendor
-    ├── autoload.php
-    ├── composer
-    │   ├── autoload_classmap.php
-    │   ├── autoload_namespaces.php
-    │   ├── autoload_psr4.php
-    │   ├── autoload_real.php
-    │   ├── autoload_static.php
-    │   ├── ClassLoader.php
-    │   ├── installed.json
-    │   └── LICENSE
-    └── phpunit
-        └── php-invoker
-            ├── build.xml
-            ├── composer.json
-            ├── LICENSE
-            ├── phpunit.xml
-            ├── README.md
-            ├── src
-            │   ├── Exception.php
-            │   ├── Invoker.php
-            │   └── TimeoutException.php
-            └── tests
-                ├── _fixture
-                │   └── TestCallable.php
-                └── InvokerTest.php
-
-69 directories, 159 files
+└── 
+ 
 
 </pre>
 Tiny web application framework and tool collection for PHP 7.2+

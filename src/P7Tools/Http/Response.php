@@ -114,7 +114,6 @@ class Response
         if ($setDefaultHeaders) {
             // (over) writing headers by default
             $this->headers['P7Tools-Awareness-Factor'] = 'Mega-Ubercool';
-            $this->headers['Content-Type'] = 'text/html;charset=utf-8';
             $this->headers['X-Powered-By'] = 'P7Tools ' . \P7Tools\Meta::VERSION . ' running on PHP/' . phpversion();
         }
     }
@@ -204,6 +203,6 @@ class Response
         foreach ($this->headers as $key => $val) {
             header($key . ': ' . $val);
         }
-        return $this->$this;
+        return $this;
     }
 } 
